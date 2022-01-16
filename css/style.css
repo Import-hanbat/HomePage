@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda&family=Roboto:wght@300&display=swap');
+/*홈페이지 기본 css 설정*/
 body{
     width: 90vw;
     margin: auto;
@@ -6,29 +7,49 @@ body{
     color: white;
 }
 
-.snss a {
-  text-decoration: none;
-    color: white; 
-    font-size: 30px; 
-}
-
 ul {
   list-style: none;
 }
 
-#container {
-  margin: 0 auto;
-  width: 1200px;
+.symbol-color{
+  color: #83ff5c;
+}
+.symbol-background-color{
+  background-color: #83ff5c;
 }
 
-/* 헤더 영역 */
+.back-color{
+    background-color: #060707;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100vw;
+  max-width: 100%;
+}
+
+
+/* 메뉴바 영역, 왠만하면 이 변수명은 쓰지 않기 */
+
 header {
   width: 100%;
+  height: 200px;
+}
+nav {
+  width: 100%;
   height: 100px;
+  padding-top: 40px; /*메뉴를 아래로 내리기 위해 */
 }
 
+.logo {
+  margin-left: 10%;
+  width: 150px;
+  height: 100px;
+  float: left;
+  line-height: 100px;
+}
 
-#logo h1 {
+.logo h1 {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 40px;
@@ -36,27 +57,25 @@ header {
   text-shadow: 0 -1px 0 #222;
     margin: 0px;
 }
-/* 내비게이션 영역 */
-nav {
-  width: 100%;
-  height: 100px;
-  padding-top: 40px; /*메뉴를 아래로 내리기 위해 */
-}
+
+/* 메뉴바 내려오는 영역*/
 .topMenu {
   margin-bottom: 100px;
-    width: 80%;
-}
-#topMenu {
-    width: 100%;
-    
+  width: 70%;
+  height: 60px;
+  float: right;
 }
 
-#topMenu > li {
+.topMenu-ul {
+    width: 100%;
+}
+
+.topMenu-ul > li {
   float: left;
   position: relative; /* 서브메뉴의 부모요소 */
 }
 
-#topMenu > li > a {
+.topMenu-ul > li > a {
   display: block; /*링크 텍스트는 블록으로 */
   color: #ccc;
   font-weight: 600;
@@ -64,16 +83,16 @@ nav {
   padding: 20px 60px;
 }
 
-#topMenu > li > a > span {
+.topMenu-ul > li > a > span {
   font-size: 0.5em; /* 서브메뉴가 있는 항목에 화살표 표시 */
 }
 
-#topMenu > li > a:hover {
+.topMenu-ul > li > a:hover {
   color: #88d60b; /* 마우스 포인터를 올리면 색상 바뀜 */
   text-shadow: 0 -1px #07c; /* 글자가 굵어지지 않도록 지정 */
 }
 
-#topMenu > li > ul {
+.topMenu-ul > li > ul {
   display: none; /* 서브메뉴를 처음에는 감춤 */
   position: absolute;
   width: 160px;
@@ -82,212 +101,149 @@ nav {
   left: 20px;
 }
 
-#topMenu > li > ul > li {
+.topMenu-ul > li > ul > li {
   padding: 10px 0px 10px 0px; /*서브메뉴 항목 지정 */
 }
 
-#topMenu > li > ul > li > a {
+.topMenu-ul > li > ul > li > a {
   font-size: 14px;
   padding: 10px;
   color: #ccc;
 }
 
-#topMenu > li:hover > ul {
+.topMenu-ul > li:hover > ul {
   display: block;
   z-index: 10;
 }
 
-#topMenu > li > ul > li > a:hover {
+.topMenu-ul > li > ul > li > a:hover {
   color: #83ff5c;
 }
 
 
-/* 콘텐츠 영역 */
-.content1 {
+/* 
+
+  콘텐츠 영역 
+  middle 영역
+
+*/
+
+.middle-apply {
+  margin-top: 150px;
+  height: 1500px;
   width: 100%;
-    margin: auto;
-  height: 400px;
-  margin-top: 20px;
 }
 
+.middle-title {
+  width: 28%;
+  height: 60px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.middle-title h1{
+  font-size: 60px;
+}
 
+.middle-introduce {
+  width: 65%;
+  height: 20%;
+  margin: auto;
+  margin-top: 50px;
+}
 
-
-/* 푸터 영역 */
-footer {
+.import-logo {
+  float: left;
+  height: 80%;
+  width: 40%;
+  margin: 10px;
+  margin-left: 100px;
+  margin-right: 40px;
+}
+.import-logo img{
   width: 100%;
-  height: 100px;
-  border-top: 2px #a3bcdf solid; /* 위쪽에 가로선 추가(안됨...) */
-}
-#sns {
-    border-radius: 10px;
-
-}
-#sns ul li {
-  padding: 5px;
-    width: 30px;
-    float: left;
-}
-#group {
-  float: right;
-  color: #a3bcdf;
-  margin-top: 120px;
 }
 
-.apply {
-    border-radius: 10px;
+.middle-introduce-text{
+  float: left;
+  width: 40%;
+  margin-left: 0;
+}
+
+.middle-introduce-title {
+  float: left;
+  font-size: 18px;
+  width: 100%;
+
+}
+
+.middle-introduce-content {
+  float: left;
   font-size: 20px;
-  color: white;
-  background-color: #83ff59;
   width: 100%;
-  height: 100%;
-  font-weight: 600;
-}
-.content2 {
-    width: 80vw;
-    margin: auto;
-    height: 30px;
-    margin-top: 20px;
-    display: block;
 }
 
-#links-text {
-    height: 50%;
-    width: 100%;
+/*
+    동아리에서 하는 일들을 소개하는 란
+*/
+
+.middle-content {
+  width: 80%;
+  height: 20%;
+  margin: auto;
+  margin-top: 50px;
 }
 
-.footer {
-    height: 300px;
-    width: 100%;
+.middle-content-title {
+  font-size: 18px;
+  width: 23%;
+  margin: auto;
+  text-align: center;
+}
+.middle-content-title h1{
+  width: 250px;
 }
 
-.topMenu {
-    height: 60px;
-    float: right;
-    
+.middle-content-image {
+  width: 40%;
+  float: left;
 }
 
+.middle-content-text {
+  width: 55%;
+  font-size: 18px;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.middle-content-text p{
+  font-size: 21px;
+  width: 600px;
+  margin: auto;
+}
+
+
+/* 자동 슬라이드 구현 부분 코드 */
 .slide-container {
     width: 2000vw;
     transform: translateX(0vw);/*-120까지 하면 됨*/
     transition: transform 0.3s;
 }
-
 .slide-box {
-    width: 10vw;
-    float: left;
-    text-align: center;
-}
-
-.middle-introduce-text1 {
-    float: left;
-    width: 60%;
-  margin-left: 0;
-}
-
-.middle-introduce-title {
-    float: left;
-  font-size: 18px;
-    width: 100%;
-
-}
-
-.middle-introduce-content {
-    float: left;
-  font-size: 20px;
-  width: 100%;
-}
-
-.hanbat-logo {
+  width: 10vw;
   float: left;
-  height: 40%;
-  width: 30%;
-  margin: 10px;
-    margin-right: 8%
+  text-align: center;
 }
-.hanbat-logo img{
-    width: 100%;
+.slide-box i {
+  font-size: 90px;
 }
+/* 종료 */
 
-.middle {
-  margin-top: 100px;
-    height: 500px;
-}
+/* 
 
-.sns1 {
-    float: left;
-}
+    지원 자격에 대한 부분을 설명하는 란
 
-.snss {
-    width: 30%;
-    height: 40px;
-}
-
-#logo {
-    width: 20%;
-    float: left;
-    
-}
-
-.middle-apply {
-    margin-top: 150px;
-    height: 1500px;
-    width: 100%;
-}
-
-.title {
-    width: 36%;
-    height: 60px;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 100px;
-}
-.title h1{
-    font-size: 60px;
-}
-
-.middle-introduce {
-    width: 80%;
-    height: 20%;
-    margin: auto;
-    margin-top: 50px;
-}
-
-.middle-content {
-    width: 80%;
-    height: 20%;
-    margin: auto;
-    margin-top: 50px;
-}
-
-.middle-content-title {
-    font-size: 18px;
-    width: 23%;
-    margin: auto;
-    text-align: center;
-}
-.middle-content-title h1{
-    width: 250px;
-}
-
-.middle-content-image {
-    width: 40%;
-    float: left;
-}
-
-.middle-content-text {
-    width: 55%;
-    font-size: 18px;
-    margin: auto;
-    text-align: center;
-    margin-bottom: 30px;
-}
-.middle-content-text p{
-    font-size: 21px;
-    width: 600px;
-    margin: auto;
-    
-}
+*/
 
 .middle-eligibility {
     width: 80%;
@@ -325,8 +281,16 @@ footer {
     margin-top: 40px;
 }
 
-.slide-box i {
-    font-size: 90px;
+/* 지원 버튼*/
+
+.apply {
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: #83ff59;
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
 }
 
 .apply-btn {
@@ -336,7 +300,258 @@ footer {
     
 }
 
-.copyright {
-    width: 290px;
-    margin: auto;
+
+
+/* 푸터 영역 */
+
+.footer {
+  height: 300px;
+  width: 100%;
 }
+.snss {
+  width: 30%;
+  height: 40px;
+}
+.sns ul li {
+  padding: 5px;
+  width: 30px;
+  float: left;
+  border-radius: 10px;
+}
+.snss a {
+  text-decoration: none;
+    color: white; 
+    font-size: 30px; 
+}
+.copyright {
+  width: 290px;
+  margin: auto;
+}
+
+.address {
+  float: right;
+  color: #a3bcdf;
+  margin-top: 120px;
+}
+
+
+/* 메인 페이지 css 끝 */
+
+/****************************/
+
+/* 게시글 페이지 css 시작 */
+
+.post {
+    width: 70%;
+    min-height: 600px;
+    padding: 5% 0 5% 0;
+    margin: 0 auto;
+}
+.post h2{
+    font-size: 25px;
+    font-weight: 700;
+    color: #83ff5c;
+    margin-bottom: 1px;
+}
+
+/* 소스코드 하이라이트 */
+/* 숫자 스타일 */
+.hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /* 가운데 정렬 */
+    text-align: center;
+    /* 글자 색 설정 */
+    color: gray;
+    /* 오른쪽 선 설정 */
+    border-right: 1px solid rgba(204, 204, 204, 0.15);
+    /* 세로 정렬 */
+    vertical-align: top;
+    /* 오른쪽 여백 */
+    padding-right: 10px !important;
+    /* 글자 사이즈 */
+    font-size: 10pt;
+    /* 라인 높이 */
+    line-height: 15px;
+}
+    /* 코드 스타일 */
+.hljs-ln-code {
+    /* 왼쪽 여백 */
+    padding-left: 10px !important;
+    /* 글자 사이즈 */
+    font-size: 10pt;
+    /* 공백 설정 */
+    white-space: pre-wrap;
+    /* 라인 높이 */
+    line-height: 15px;
+}
+
+/* 위험한 코드 */
+pre code {
+    border-radius: 5px 5px;
+    background-color: #222 !important;
+    display: block;
+    min-height: 35px;
+    padding: 10px;
+}
+pre {
+    margin: 10px 0;
+}
+
+/* 
+    글쓰기 코드가 완성되면 수정하기
+    나중에 코드가 겹칠 위험이 있음 
+
+*/
+
+
+/* content */
+
+.post-content-title > h1 {
+    font-size: 40px;
+}
+.comment-info {
+    width: 100%;
+    height: 1%;
+    color: #ccc;
+    display: inline;
+}
+#contentWrap hr {
+    border: none;
+    border-top: 1px solid rgba(204, 204, 204, 0.15);
+    margin: 1% 0 1% 0;
+}
+#contentBody {
+    padding: 0 1% 0 1%;
+    margin-bottom: 1%;
+}
+.comment-buttons {
+    display: inline;
+    float: right;
+    margin-right: 1%;
+}
+.comment-body {
+    margin-top: 1%;
+    padding: 0 1% 0 1%;
+    clear: right;
+    word-break: normal;
+    word-wrap: break-word;
+}
+.comment-buttons button{
+    background-color: transparent;
+    color: #ccc;
+    border: none;
+    font-size: 10px;
+}
+.comment-buttons button:hover {
+    cursor: pointer;
+    color: #83ff5c;
+}
+/* content button /add comment/edit/delete */
+#contentButtons {
+    display: inline;
+    float: right;
+    margin-right: 1%;
+}
+#contentButtons > button {
+    background-color: transparent;
+    border: none;
+    color: #ccc;
+}
+#contentButtons > button:hover {
+    cursor: pointer;
+    color: #83ff5c;
+}
+
+
+/* 하단 버튼 */
+
+
+.post-footer-btn {
+    margin-top: 1%;
+    width: 100%;
+    height: 30px;
+    position: relative;
+}
+.post-comment-btn{
+    width: 40%;
+    float: left;
+}
+.post-comment-btn button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 5px;
+    height: 100%;
+}
+
+.post-list-btn{
+    float: right;
+}
+.post-list-btn button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 5px;
+    height: 100%;
+}
+
+
+.post-footer-btn button:hover {
+    cursor: pointer;
+    color: #83ff5c;
+}
+
+
+
+
+/* to prev next content */
+.other-contents {
+    width: 80%;
+    height: 50px;
+    background-color: transparent;
+    margin: 3% auto 0;
+}
+.other-contents > button {
+    width: 50%;
+    height: 50px;
+    float: left;
+    border: none;
+    border-right: rgba(204, 204, 204, 0.15) 1px solid;
+    position: relative;
+    font-size: 15px;
+    background-color: transparent;
+    text-align: center;
+    color: white;
+}
+.other-contents > button:last-of-type {
+    border-right: none;
+}
+.other-contents > button:hover {
+    cursor: pointer;
+    color: #83ff5c;
+}
+.other-contents > button > h3 {
+    width: 100%;
+    font-size: 20px;
+    display: inline;
+}
+.prev-content-button > span{
+    position: absolute;
+    left: 10px;
+    border: 900;
+}
+.next-content-button > span{
+    position: absolute;
+    right: 10px;
+    border: 900;
+}
+
+
+/* 게시글 페이지 css 끝*/
+
+

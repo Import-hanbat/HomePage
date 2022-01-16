@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>   
-    <link href="fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+    <link href="../fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+
   <title>IMPORT</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <script>
+        //스크롤의 값에 따라서 애니메이션을 사용할 건지에 대한 코드
         window.addEventListener('scroll',function(){
            var nowScroll = document.body.scrollTop;
             console.log(nowScroll);
-            
-            
             
             if(nowScroll > 150){
                 
@@ -28,15 +29,16 @@
         
         
     </script>
+    <!-- 상단 메뉴 바, 어느 페이지건 다 복사 붙여넣기를 해야함 -->
+    <header>
         <nav>
-          <div id="logo">
-              
+          <div class="logo">
             <a herf="index.html">
               <h1>IMPORT</h1>
             </a>
           </div>
         <div class="topMenu">
-            <ul id="topMenu">
+            <ul class="topMenu-ul">
               <li><a href="#">동아리 <span>▼</span></a>
                 <ul>
                   <li><a href="#">임원진</a></li>
@@ -57,33 +59,39 @@
             </ul>
         </div>
       </nav>
-      
+    </header>
+        
+
+
+      <!-- 중간 부분에 로고와 함께 동아리를 소개하는 부분 -->
+
+
       <div class="middle-apply">
-          <div class="title">
+          <div class="middle-title">
             <h1 style="font-style: italic; color: #83ff5c; ">HELLO&nbsp;IMPORT!</h1>
           </div>
           
         <div class="middle-introduce">
               
-            <div class="hanbat-logo">
-                <img src="images/cat.jpg">
-              </div>
-            <div class="middle-introduce-text1">
+            <div class="import-logo">
+                <img src="../images/cat.jpg">
+            </div>
+            <div class="middle-introduce-text">
                 <div class="middle-introduce-title">
                   <h1>Import는?</h1>
                 </div>
-            <div class="middle-introduce-content">
-                <p>
-                    <b>개발자</b>와 <b>디자이너</b> 모두가 함께 성장할 수 있는,<br>
-                    한밭대학교 총동아리 소속 <b>IT동아리</b>입니다.
-                </p>
-              </div>
+                <div class="middle-introduce-content">
+                    <p>
+                        <b>개발자</b>와 <b>디자이너</b> 모두가 함께 성장할 수 있는,<br>
+                        한밭대학교 총동아리 소속 <b>IT동아리</b>입니다.
+                    </p>
+                </div>
             </div>
         </div>
-        <script>
-            
-            
-        </script>
+     <!--
+        윗글과 마찬가지로 동아리에서 하는 일을 소개하는 부분
+        아래 부분을 자동 슬라이드를 이용함 
+        -->
         <div class="middle-content">
             <div class="middle-content-title">
                 <h1>어떤걸 하나요?</h1>
@@ -95,7 +103,7 @@
                 <div style="overflow: hidden; position: relative; height: 100px; width: 100%;">
                     <div class="slide-container">
                         <div class="slide-box">   
-                            <i style="color: black;" class="fab fa-aws"></i>
+                            <i style="color: white;" class="fab fa-aws"></i>
                         </div>
                         <div class="slide-box">   
                             <i class="fab fa-aws"></i>
@@ -157,6 +165,8 @@
                     </div>
                 </div>
                 <script>
+                    // 자동 슬라이드를 구현항 방법은 setInterver을 사용해서 0.1초 동안 반복하게 적용함,
+                    // 그리고 timer+1을 하여서 0.1초에 1vw를 이동하게끔 설계 후에 transition을 css에서 사용해서 부드럽게 적용
                     var timer = 0;                
                     let interval = setInterval(slideshow, 100); 
                 
@@ -172,13 +182,13 @@
                     } 
                 </script>
             </div>
-        
+            <!-- 지원 자격을 묻는 부분 -->
           <div class="middle-eligibility">
               <div class="middle-dligibility-title">
                   <h1>지원자격은 어떻게 되나요?</h1>
               </div>
               <div class="middle-eligibility-image">
-                  <img src="images/hoho.png">
+                  <img src="../images/hoho.png">
               </div>
               <div class="middle-eligibility-content">
                   <ul>
@@ -194,13 +204,12 @@
               <button class="apply" onclick="apply.html">신청하기</button>
             </div> 
           </div>
-                
     </div>
             
         
-        
+        <!-- 마지막 footer부분 이 부분은 메뉴바와 함께 복사 붙여 넣기 꼭 하기 -->
     <div class="footer">
-      <div id="sns">
+      <div class="sns">
         <ul class="snss">
           <li><a href="#"><i class="fab fa-github"></i></a></li>
           <li><a href="#"><i class="fab fa-instagram"></i></a></li>
@@ -210,7 +219,7 @@
         <div class="copyright">
             <p>Copyright 2022. Import all right reserved.</p>
         </div>
-          <div id="group">
+          <div class="address">
             <p>대전광역시 유성구 동서대로 125</p>
           </div>
       </div>
@@ -259,5 +268,6 @@
 //        });
     
     </script>
+
 -->
     
