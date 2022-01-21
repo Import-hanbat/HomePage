@@ -726,7 +726,7 @@ a {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   background-clip: content-box;
-  color: var(--black-color);
+  color: black;
 }
 
 .contents
@@ -751,6 +751,14 @@ a {
   border-bottom-right-radius: 8px;
   border: 1px solid rgba(204, 204, 204, 0.15);
   cursor: pointer;
+      width: 100%;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: var(--green-color);
+      margin: 0;
 }
 
 .contents
@@ -758,15 +766,19 @@ a {
   .project-cards
   .project-card-component
   .links
-  .link-item
-  a {
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 27px;
-  text-align: center;
-  letter-spacing: -0.02em;
-  color: var(--green-color);
+  .link-item {
+    
 }
+
+.contents
+  .project-cards-container
+  .project-cards
+  .project-card-component
+  .links
+  .link-item:hover {
+  color: var(--black-color);
+}
+
 
 .contents .project-cards-container .load-more {
   margin-top: 48;
@@ -816,7 +828,7 @@ a {
   font-size: 48px;
   line-height: 64px;
   letter-spacing: 0.03em;
-  color: var(--white-color);
+  color: var(--green-color);
 }
 
 .project-cards-container {
