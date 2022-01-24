@@ -744,21 +744,20 @@ a {
   .project-card-component
   .links
   .link-item {
-  padding: 16px 24px;
   width: 100%;
   text-align: center;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   border: 1px solid rgba(204, 204, 204, 0.15);
   cursor: pointer;
-      width: 100%;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 27px;
-    text-align: center;
-    letter-spacing: -0.02em;
-    color: var(--green-color);
-      margin: 0;
+  width: 100%;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: var(--green-color);
+  margin: 0;
 }
 
 .contents
