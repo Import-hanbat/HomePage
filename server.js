@@ -73,6 +73,9 @@ app.get('/post',function(req,res){
     res.render('post.ejs');
 });
 
+app.get('/write',function(req,res){
+    res.render('write.ejs')
+})
 
 
 /*

@@ -765,15 +765,6 @@ a {
   .project-cards
   .project-card-component
   .links
-  .link-item {
-    
-}
-
-.contents
-  .project-cards-container
-  .project-cards
-  .project-card-component
-  .links
   .link-item:hover {
   color: var(--black-color);
 }
@@ -807,6 +798,8 @@ a {
   width: 20px;
   height: 11;
 }
+
+
 
 /* 반응형 */
 @media screen and (max-width: 768px) {
@@ -842,3 +835,85 @@ a {
   align-items: center;
   margin-bottom: 64px;
 }
+
+/* write css 시작부분 */
+
+.write-title {
+  width: 50%;
+  margin-top: 40px;
+}
+.write-title input{
+  height: 50px;
+  border: none;
+  font-size: 50px;
+}
+
+.write-btn{
+  width: 100%;
+  margin: 0;
+}
+.write-btn button{
+  width: 50px;
+  height: 50px;
+  border: 0px;
+  outline: 0px;
+  color: #83ff5c;
+}
+
+.write-btn button:hover {
+  background-color: #83ff5c;
+}
+
+.write-btn button:hover{
+  color: #060707;
+}
+
+.write-btn button:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+  inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.image-selector{
+  display: none;
+}
+
+.write-contents {
+  width: 100%;
+  height: 500px;
+  margin-top: 100px;
+}
+
+.write-contents img{
+  max-width: 100%;
+}
+
+[contentEditable=true]:empty::before{
+  content:attr(data-text);
+  color: gray;
+}
+
+
+
+.last-button button {
+  border: none;
+  width:100px;
+  height: 30px;
+  float: left;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+.last-button button:hover {
+  background-color: yellow;
+}
+
+.last-button button:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+  inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.complete-button {
+  background-color:#83ff5c;
+  margin-left: 10px;
+}
+
