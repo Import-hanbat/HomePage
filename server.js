@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const MongoClient = require('mongodb').MongoClient;
+
 app.use(bodyParser.urlencoded({extends : true}));
 
 app.set('view engine', 'ejs');
@@ -9,10 +11,13 @@ app.set('view engine', 'ejs');
 app.use('/css',express.static('css')); //미들웨어
 app.use('/fontawesome-free-5.15.4-web',express.static('fontawesome-free-5.15.4-web')); //미들웨어
 app.use('/images',express.static('images'));
-
-app.listen(8080, function() {
-    console.log('listening on 8080')
+MongoClient.connect('mongodb+srv://import:import1015@cluster0.a1cx0.mongodb.net/HomePage?retryWrites=true&w=majority',function(err, client){
+    if(err) return console.log(err);
+    app.listen(8080, function() {
+        console.log('listening on 8080');
+    })
 })
+
 //메인 홈페이지
 app.get('/', function(req,res){
     res.render('index.ejs');
@@ -78,6 +83,16 @@ app.get('/write',function(req,res){
 })
 
 
+/* db 업로드 코드 */
+
+app.post('/write/web',function(req,res){
+    var content = req.body.content;
+    console.log(content);
+})
+
+
+
+
 /*
  *
 DB 데이터 구성
@@ -87,9 +102,6 @@ DB 데이터 구성
 --글쓰기 후에 DB저장시에 -- 
 카테고리, 개시글 날짜, 개시글 쓴 사람
 개시글 내용
-
-
-
 
  * 
  * 

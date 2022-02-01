@@ -38,7 +38,7 @@
 
 <div class="last-button">
   <button>임시저장</button>
-  <button class="complete-button">저장하기</button>
+  <button class="complete-button" onclick="SaveData()">저장하기</button>
 </div>
   
 </body>
@@ -90,6 +90,25 @@
       document.execCommand('insertImage', false, `${reader.result}`); 
     }); 
     reader.readAsDataURL(file); 
+  }
+
+
+  $('write-content').addEventListener('paste',function(e){
+    let paste = 
+  })
+
+
+  function SaveData(){
+    console.log("실행")
+    $.ajax({
+      type:"POST",
+      url: "/write/web",
+      data: {content:$('.write-contents').html()},
+      dataType: "json",
+      success: function(){
+        console.log("success")
+      }
+    })
   }
 
 </script>
