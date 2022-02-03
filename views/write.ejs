@@ -11,35 +11,48 @@
   <title>Import</title>
 </head>
 <body>
+  <form action="/add" method="POST">
   <div class="write-title">
-    <input class="back-color" type="text" placeholder="제목을 입력하세요">
-</div>
-<hr>
+      <input style="color:white;" class="back-color" type="text" name="title" placeholder="제목을 입력하세요">
+  </div>
+  <hr>
+  <div class="write-category">
+    <select class="back-color symbol-color" name=category>
+      <option value="회의록">회의록</option>
+      <option value="프로젝트">프로젝트</option>
+      <option value="Web">Web</option>
+      <option value="Mobile">Mobile</option>
+      <option value="DataAnalysis">DataAnalysis</option>
+      <option value="AI">AI</option>
+    </select>
+  </div>
 
-<div class="write-btn">
-    <button class="back-color" id="btnBigFont">대</button>
-    <button class="back-color" id="btnMiddleFont">중</button>
-    <button class="back-color" id="btnSmallFont">소</button>
 
-    <button class="back-color" id="btnBold"><b>B</b></button>
-    <button class="back-color" id="btnItalic"><span style="font-style: italic;">I</span></button>
-    <button class="back-color" id="btnStrike">T</button>
+  <div class="write-btn">
+      <button class="back-color" id="btnBigFont">대</button>
+      <button class="back-color" id="btnMiddleFont">중</button>
+      <button class="back-color" id="btnSmallFont">소</button>
 
-    <button class="back-color" >"</button>
-    <button class="back-color symbol-color">링크</button>
-    <button  class="back-color" id="btnImage"><i style="font-size: 20px;" class="far fa-image"></i></button>
-    <input  class="image-selector" id="imgSelector" type="file" accept="image/*"/>
+      <button class="back-color" id="btnBold"><b>B</b></button>
+      <button class="back-color" id="btnItalic"><span style="font-style: italic;">I</span></button>
+      <button class="back-color" id="btnStrike">T</button>
+
+      <button class="back-color" >"</button>
+      <button class="back-color symbol-color">링크</button>
+      <button  class="back-color" id="btnImage"><i style="font-size: 20px;" class="far fa-image"></i></button>
+      <input  class="image-selector" id="imgSelector" type="file" accept="image/*"/>
+
+    </div>
+
+  <div contenteditable="true" class="write-contents" data-text="텍스트를 입력하세요." id="editor" >
 
   </div>
 
-<div contenteditable="true" class="write-contents" data-text="텍스트를 입력하세요." id="editor" >
-
-</div>
-
-<div class="last-button">
-  <button>임시저장</button>
-  <button class="complete-button" onclick="SaveData()">저장하기</button>
-</div>
+  <div class="last-button">
+    <button onclick="SaveData()">임시저장</button>
+    <button type="submit" class="complete-button">저장하기</button>
+  </div>
+</form>
   
 </body>
 <script>
@@ -83,28 +96,38 @@
   function focusEditor() { 
     editor.focus({preventScroll: true}); 
   }
-  function insertImageDate(file){ 
-    const reader = new FileReader(); 
-    reader.addEventListener('load', function (e) { 
-      focusEditor(); 
-      document.execCommand('insertImage', false, `${reader.result}`); 
-    }); 
-    reader.readAsDataURL(file); 
-  }
 
+  // function insertImageDate(file){ 
+  //   const reader = new FileReader(); 
+  //   reader.addEventListener('load', function (e) { 
+  //     focusEditor(); 
+  //     document.execCommand('insertImage', false, `${reader.result}`); 
+  //   }); 
+  //   reader.readAsDataURL(file); 
+  // }
 
-  $('write-content').addEventListener('paste',function(e){
-    let paste = 
-  })
-
-
-  function SaveData(){
-    console.log("실행")
+  function Sendtitle(){
     $.ajax({
       type:"POST",
-      url: "/write/web",
-      data: {content:$('.write-contents').html()},
-      dataType: "json",
+      url: "/add",
+      data: {title:$('input[name=title]'), category:$('input[name=category]')},
+      dataType:"json",
+      success: function(){
+        console.log("success")
+      }
+    })
+  }
+
+  function SaveData(){
+    var savecontent = $('#editor').html();
+
+    console.log(savecontent);
+
+    $.ajax({
+      type:"POST",
+      url: "/add",
+      data: {content:savecontent},
+      dataType: "html",
       success: function(){
         console.log("success")
       }

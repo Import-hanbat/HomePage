@@ -847,6 +847,12 @@ a {
   border: none;
   font-size: 50px;
 }
+.write-category{
+  float: right;
+}
+.write-category select{
+  height: 50px;
+}
 
 .write-btn{
   width: 100%;

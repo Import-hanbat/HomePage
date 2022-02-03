@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 
-app.use(bodyParser.urlencoded({extends : true}));
+app.use(express.urlencoded({ extended: true }))
 
 app.set('view engine', 'ejs');
 
@@ -85,9 +85,27 @@ app.get('/write',function(req,res){
 
 /* db 업로드 코드 */
 
-app.post('/write/web',function(req,res){
-    var content = req.body.content;
-    console.log(content);
+app.post('/add',function(req,res){
+    // console.log(req.body.title);
+    // console.log(req.body.category);
+    console.log(req.body.content);
+
+
+    // db.collection('counter').findOne({name : 'web'},function(err, resu){
+    //     console.log(resu.totalPosts);
+    //     var totalpostnum = resu.totalPosts;
+    //     db.collection('post').insertOne({_id : totalpostnum + 1,제목 : req.body.title, 카테고리 : req.body.category, 내용: req.body.content}, function(err,resu){
+    //         console.log('저장완료');
+    //     }); 
+    //     //counter라는 콜렉션에 있는 totalPost라는 항목도 1이 증가해야됨.(수정)
+    //     db.collection('counter').updateOne({name : 'web'},{$inc :{totalPosts:1}},function(err, resu){
+    //         if(err){return console.log(err)}; 
+    //     });//수정을 할 때 쓰는 함수(한개만 가능, 여러개는 updateMany로 쓰면 됨)
+    // });//updateOne({/* 어떤 데이터를 수정할지 */},{/* 수정 값 */},function(){})
+    
+    
+    
+
 })
 
 
