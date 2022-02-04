@@ -11,19 +11,19 @@
   <title>Import</title>
 </head>
 <body>
-  <form action="/add" method="POST">
   <div class="write-title">
-      <input style="color:white;" class="back-color" type="text" name="title" placeholder="제목을 입력하세요">
+      <input style="color:white;" class="back-color" type="text" id="title" placeholder="제목을 입력하세요">
   </div>
   <hr>
   <div class="write-category">
-    <select class="back-color symbol-color" name=category>
-      <option value="회의록">회의록</option>
-      <option value="프로젝트">프로젝트</option>
-      <option value="Web">Web</option>
-      <option value="Mobile">Mobile</option>
-      <option value="DataAnalysis">DataAnalysis</option>
-      <option value="AI">AI</option>
+    <select class="back-color symbol-color" name=category onchange="selectBoxChange(this.value)">
+      <option value="" selected disabled hidden >카테고리</option>
+      <option value="meetingnote">회의록</option>
+      <option value="project">프로젝트</option>
+      <option value="web">Web</option>
+      <option value="mobile">Mobile</option>
+      <option value="dataanalysis">DataAnalysis</option>
+      <option value="ai">AI</option>
     </select>
   </div>
 
@@ -49,11 +49,11 @@
   </div>
 
   <div class="last-button">
-    <button onclick="SaveData()">임시저장</button>
-    <button type="submit" class="complete-button">저장하기</button>
+    <button >임시저장</button>
+    <button class="complete-button">저장하기</button>
   </div>
-</form>
-  
+
+
 </body>
 <script>
   $('#btnBigFont').click(function(){
@@ -84,6 +84,7 @@
     }
   });
 
+  
 
   function setStyle(style) { 
     document.execCommand(style); 
@@ -106,33 +107,31 @@
   //   reader.readAsDataURL(file); 
   // }
 
-  function Sendtitle(){
+  var category = "";
+  var selectBoxChange = function(value){
+      console.log(value);
+      category = value;
+    }
+  $('.complete-button').click(function(){
+    var title = $('#title').val();
+    var content = $('#editor').html();
+
+    
+    
+    var alldata = {"title" : title, "category" : category, "content": content};
     $.ajax({
       type:"POST",
       url: "/add",
-      data: {title:$('input[name=title]'), category:$('input[name=category]')},
-      dataType:"json",
+      data: alldata,
+      dataType: "json",
       success: function(){
         console.log("success")
       }
     })
-  }
+  })
 
-  function SaveData(){
-    var savecontent = $('#editor').html();
-
-    console.log(savecontent);
-
-    $.ajax({
-      type:"POST",
-      url: "/add",
-      data: {content:savecontent},
-      dataType: "html",
-      success: function(){
-        console.log("success")
-      }
-    })
-  }
+  
+  
 
 </script>
 </html>
