@@ -49,10 +49,10 @@
         
         <div class="post">
             <div class="post-category">
-                <h2>Category</h2>
+                <h2><%= data.category %></h2>
             </div>
             <div class="post-content-title">
-                <h1>Content Title</h1>
+                <h1><%= data.title %></h1>
             </div>
             <div class="post-content-info">
                 <span>관리자</span> 
@@ -73,7 +73,9 @@
             
             <hr>
             <div id="contentBody">
-                <pre>
+              <%- data.content %>
+
+                <!-- <pre>
                 <code>#include &ltstdio.h&gt
 
     int main(void) {
@@ -89,7 +91,7 @@
                     content-body content-body content-body content-body content-body content-body content-body content-body 
                     content-body content-body content-body content-body content-body content-body content-body content-body 
                     content-body content-body content-body content-body content-body content-body content-body content-body 
-                </p>
+                </p> -->
             </div>
 
 <!--
@@ -126,9 +128,9 @@
         <div class="footer">
       <div class="sns">
         <ul class="snss">
-          <li><a href="#"><i class="fab fa-github"></i></a></li>
-          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+          <li><a href="https://github.com/Import-hanbat"><i style="color: white;" class="fab fa-github"></i></a></li>
+          <li><a href="https://www.instagram.com/import_hanbat/"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://www.facebook.com/Import-110047964872044"><i class="fab fa-facebook"></i></a></li>
         </ul>
       </div>
         <div class="copyright">

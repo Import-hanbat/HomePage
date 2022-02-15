@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
+
 const bodyParser = require('body-parser');
+const res = require('express/lib/response');
 const MongoClient = require('mongodb').MongoClient;
 
 var db;
@@ -44,43 +46,77 @@ app.get('/rule',function(req, res){
 });
 //회의록
 app.get('/meeting',function(req,res){
-    res.render('list.ejs');
+    db.collection('meetingnote').find().toArray(function(err, resu){
+        console.log(resu);
+        res.render('list.ejs', { data : resu});
+    });
 });
+
 
 //프로젝트
 app.get('/project',function(req,res){
-    res.render('list.ejs');
+    db.collection('project').find().toArray(function(err, resu){
+        console.log(resu);
+        res.render('list.ejs', { data : resu});
+    });
 });
 
 //웹
 app.get('/web',function(req,res){
-    res.render('list.ejs');
+    db.collection('web').find().toArray(function(err, resu){
+        console.log(resu);
+        res.render('list.ejs', { data : resu});
+    });
 });
+
 
 //모바일
 app.get('/mobile',function(req, res){
-    res.render('list.ejs');
+    db.collection('mobile').find().toArray(function(err, resu){
+        console.log(resu);
+        res.render('list.ejs', { data : resu});
+    });
 });
+
+
 //데이터분석
 app.get('/dataAnalysis',function(req, res){
-    res.render('list.ejs');
+    db.collection('dataanalysis').find().toArray(function(err, resu){
+        console.log(resu);
+        res.render('list.ejs', { data : resu});
+    });
 });
+
 //ai
 app.get('/ai',function(req, res){
-    res.render('list.ejs');
+    db.collection('ai').find().toArray(function(err, resu){
+        console.log(resu);
+        res.render('list.ejs', { data : resu});
+    });
 });
+
 //질문 게시판
 app.get('/question',function(req, res){
-    res.render('list.ejs');
+    db.collection('project').find().toArray(function(err, resu){
+        console.log(resu);
+        res.render('list.ejs', { data : resu});
+    });
 });
+
+
 //지원서 작성 페이지
 app.get('/apply',function(res,req){
     res.render('apply.ejs');
 });
 
+
 //게시글 페이지
-app.get('/post',function(req,res){
-    res.render('post.ejs');
+app.get('/post/:id',function(req,res){
+    console.log(req.query.category);
+
+    db.collection(req.query.category).findOne({_id: parseInt(req.params.id)},function(err, resu){
+        res.render('post.ejs', { data : resu });
+    })
 });
 
 app.get('/write',function(req,res){
@@ -99,7 +135,7 @@ app.post('/add',function(req,res){
     db.collection('counter').findOne({name: req.body.category},function(err,resu){
         console.log(resu.totalPosts);
         var totalpostnum = resu.totalPosts;
-        db.collection(req.body.category).insertOne({title: req.body.title, category:req.body.category, content: req.body.content}, function(err,resu){
+        db.collection(req.body.category).insertOne({_id : totalpostnum+1, title: req.body.title, category:req.body.category, content: req.body.content}, function(err,resu){
             console.log('저장완료');
         });
         db.collection('counter').updateOne({name: req.body.category},{$inc :{totalPosts:1}},function(err, reus){

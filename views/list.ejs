@@ -47,106 +47,120 @@
     <!--상단 게시판 제목-->
     <div class="contents">
         <div class="title">
-            <h2>Project</h2>
+            <% if(data.length > 0){ %>
+            <h2><%= data[0].category %></h2>
             <sup class="total">12</sup>
         </div>
-
         <!--상단 제목 ~ 하단 Load more-->
         <div class="project-cards-container">
-            <!--프로젝트 게시물 전체-->
-            <div class="project-cards">
-                <!-- 프로젝트 게시물 개별 -> 한번에 6개 보여줌-->
-                <div class="project-card-component">
-                    <a href="http://localhost:8080/post" class="project-views">
-                        <img src="../images/project.png" alt="" class="project-thumbnail">
-                        <p class="name">프로젝트 제목</p>
-                        <p class="time">1기</p>
-                    </a>
-                    <div class="links">
-                        <div class="link-item">
-                            <p onclick="location.href='http://localhost:8080/post'">Go to Page</p>
-                        </div>
-                    </div>
+            
+                <% for (var i = 0; i< data.length;i++){ %>
+                <!--프로젝트 게시물 전체-->
+                <div class="project-cards">
+                    <!-- 프로젝트 게시물 개별 -> 한번에 6개 보여줌-->
+                        <div class="project-card-component"  onclick="senddata()">
+                            <a class="project-views" href="http://localhost:8080/post/<%=data[i]._id%>?category=<%=data[i].category%>">
+                                <img src="../images/project.png" alt="" class="project-thumbnail">
+                                <p class="name"><%= data[i].title %></p>
+                                <p class="time">2022</p>
+                            </a>
+                            <div class="links">
+                                <div class="link-item">
+                                    <p>Go to Page</p>
+                                </div>
+                            </div>
+                        </div>        
                 </div>
-                <div class="project-card-component">
-                    <a href="" class="project-views">
-                        <img src="../images/project.png" alt="" class="project-thumbnail">
-                        <p class="name">프로젝트 제목</p>
-                        <p class="time">1기</p>
-                    </a>
-                    <div class="links">
-                        <div class="link-item">
-                            <p>Go to Page</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card-component">
-                    <a href="" class="project-views">
-                        <img src="../images/project.png" alt="" class="project-thumbnail">
-                        <p class="name">프로젝트 제목</p>
-                        <p class="time">1기</p>
-                    </a>
-                    <div class="links">
-                        <div class="link-item">
-                            <p>Go to Page</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card-component">
-                    <a href="" class="project-views">
-                        <img src="../images/project.png" alt="" class="project-thumbnail">
-                        <p class="name">프로젝트 제목</p>
-                        <p class="time">1기</p>
-                    </a>
-                    <div class="links">
-                        <div class="link-item">
-                            <p>Go to Page</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card-component">
-                    <a href="" class="project-views">
-                        <img src="../images/project.png" alt="" class="project-thumbnail">
-                        <p class="name">프로젝트 제목</p>
-                        <p class="time">1기</p>
-                    </a>
-                    <div class="links">
-                        <div class="link-item">
-                            <p>Go to Page</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card-component">
-                    <a href="" class="project-views">
-                        <img src="../images/project.png" alt="" class="project-thumbnail">
-                        <p class="name">프로젝트 제목</p>
-                        <p class="time">1기</p>
-                    </a>
-                    <div class="links">
-                        <div class="link-item">
-                            <p>Go to Page</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
+                <% } %>
+            
             <div class="load-more">
                 <div class="load-more-btn">
                     <p>Load more</p>
                     <i class="fas fa-chevron-down"></i>
                 </div>
+                <% }else{ %>
+                    <script>
+                        alert('빈 게시글 입니다.');
+                    </script>
+                <% } %>
             </div>
         </div>
     </div>
+                <!--
+
+                
+                <div class="project-card-component">
+                    <a href="" class="project-views">
+                        <img src="../images/project.png" alt="" class="project-thumbnail">
+                        <p class="name">프로젝트 제목</p>
+                        <p class="time">1기</p>
+                    </a>
+                    <div class="links">
+                        <div class="link-item">
+                            <p>Go to Page</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card-component">
+                    <a href="" class="project-views">
+                        <img src="../images/project.png" alt="" class="project-thumbnail">
+                        <p class="name">프로젝트 제목</p>
+                        <p class="time">1기</p>
+                    </a>
+                    <div class="links">
+                        <div class="link-item">
+                            <p>Go to Page</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card-component">
+                    <a href="" class="project-views">
+                        <img src="../images/project.png" alt="" class="project-thumbnail">
+                        <p class="name">프로젝트 제목</p>
+                        <p class="time">1기</p>
+                    </a>
+                    <div class="links">
+                        <div class="link-item">
+                            <p>Go to Page</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card-component">
+                    <a href="" class="project-views">
+                        <img src="../images/project.png" alt="" class="project-thumbnail">
+                        <p class="name">프로젝트 제목</p>
+                        <p class="time">1기</p>
+                    </a>
+                    <div class="links">
+                        <div class="link-item">
+                            <p>Go to Page</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card-component">
+                    <a href="" class="project-views">
+                        <img src="../images/project.png" alt="" class="project-thumbnail">
+                        <p class="name">프로젝트 제목</p>
+                        <p class="time">1기</p>
+                    </a>
+                    <div class="links">
+                        <div class="link-item">
+                            <p>Go to Page</p>
+                        </div>
+                    </div>
+                </div>
+                -->
+                
+ 
 
 
     <!-- 마지막 footer부분 이 부분은 메뉴바와 함께 복사 붙여 넣기 꼭 하기 -->
     <div class="footer">
         <div class="sns">
           <ul class="snss">
-            <li><a href="#"><i class="fab fa-github"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://github.com/Import-hanbat"><i style="color: white;" class="fab fa-github"></i></a></li>
+            <li><a href="https://www.instagram.com/import_hanbat/"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/Import-110047964872044"><i class="fab fa-facebook"></i></a></li>
           </ul>
         </div>
           <div class="copyright">
