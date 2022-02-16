@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+const upload = require('./upload');
+
 const bodyParser = require('body-parser');
 const res = require('express/lib/response');
 const MongoClient = require('mongodb').MongoClient;
@@ -23,13 +25,12 @@ app.set('view engine', 'ejs');
 app.use('/css',express.static('css')); //미들웨어
 app.use('/fontawesome-free-5.15.4-web',express.static('fontawesome-free-5.15.4-web')); //미들웨어
 app.use('/images',express.static('images'));
-
+app.use(express.static('uploads'));
 
 //메인 홈페이지
 app.get('/', function(req,res){
     res.render('index.ejs');
 });
-
 
 //임원진
 app.get('/executive', function(req, res){
@@ -148,6 +149,11 @@ app.post('/add',function(req,res){
 })
 
 
+app.post('/upload', upload.single('image'), function(req, res) {
+        res.send(JSON.stringify(req.file));
+});
+    
+    
 
 
 /*
