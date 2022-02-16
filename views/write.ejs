@@ -79,12 +79,31 @@
   });
   $('#imgSelector').change(function(e){
     const files = e.target.files; 
+    
     if (!!files){ 
-      insertImageDate(files[0]); 
+      uploadImage(files[0]);  
     }
   });
 
-  
+  function uploadImage(file) {
+    var formData = new FormData();
+
+    formData.append('image', file);
+
+    $.ajax({
+       url: "/upload",
+       type: "POST",
+       data: formData,
+       processData: false,
+       contentType: false,
+       success: function(response) {
+          insertImageData(JSON.parse(response)['location']);
+       },
+       error: function(jqXHR, textStatus, errorMessage) {
+           console.log(errorMessage); // Optional
+       }
+    });
+  }
 
   function setStyle(style) { 
     document.execCommand(style); 
@@ -98,15 +117,16 @@
     editor.focus({preventScroll: true}); 
   }
 
-  // function insertImageDate(file){ 
-  //   const reader = new FileReader(); 
-  //   reader.addEventListener('load', function (e) { 
-  //     focusEditor(); 
-  //     document.execCommand('insertImage', false, `${reader.result}`); 
-  //   }); 
-  //   reader.readAsDataURL(file); 
-  // }
+  function insertImageData(url){
+    html = '<img src=\''+url+'\' title=\'image\' />';
+    console.log(url);
 
+      img = "<img src='" + url + "'" + '>';
+
+      focusEditor(); 
+      document.execCommand('insertHTML', false, html); 
+  }
+  
   var category = "";
   var selectBoxChange = function(value){
       console.log(value);
