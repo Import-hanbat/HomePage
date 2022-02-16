@@ -18,7 +18,7 @@ MongoClient.connect('mongodb+srv://import:import1015@cluster0.a1cx0.mongodb.net/
 });
 
 app.use(express.urlencoded({ extended: true }))
-
+app.use(bodyParser({limit: '50mb'}));
 app.set('view engine', 'ejs');
 
 //ejs를 제외한 폴더를 추가 하고 싶을 시에는 밑에 있는 코드를 써야함
