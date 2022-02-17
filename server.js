@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+const upload = require('./upload');
+
 const bodyParser = require('body-parser');
 const res = require('express/lib/response');
 const MongoClient = require('mongodb').MongoClient;
@@ -16,20 +18,19 @@ MongoClient.connect('mongodb+srv://import:import1015@cluster0.a1cx0.mongodb.net/
 });
 
 app.use(express.urlencoded({ extended: true }))
-
+app.use(bodyParser({limit: '50mb'}));
 app.set('view engine', 'ejs');
 
 //ejs를 제외한 폴더를 추가 하고 싶을 시에는 밑에 있는 코드를 써야함
 app.use('/css',express.static('css')); //미들웨어
 app.use('/fontawesome-free-5.15.4-web',express.static('fontawesome-free-5.15.4-web')); //미들웨어
 app.use('/images',express.static('images'));
-
+app.use(express.static('uploads'));
 
 //메인 홈페이지
 app.get('/', function(req,res){
     res.render('index.ejs');
 });
-
 
 //임원진
 app.get('/executive', function(req, res){
@@ -155,12 +156,20 @@ app.delete('/delete',function(){
     })
 })
 
+
 app.get('/edit/:id',function(req, res){
     db.collection(req.body.category).findOne({_id: parseInt(req.params.id)},function(err, resu){
         console.log(resu);
         res.render('edit.ejs', {data : resu});
     })
 })
+
+app.post('/upload', upload.single('image'), function(req, res) {
+        res.send(JSON.stringify(req.file));
+});
+    
+    
+
 
 app.put('/edit',function(req,res){
     db.collection(req.body.category).updateOne({_id : parseInt(req.body.id)},{ $set : {title: req.body.title, content: req.body.content}},function(err, resu){
