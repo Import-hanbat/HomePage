@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./css/style.css" rel="stylesheet">
+  <link href="../fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>   
+
+  <title>Import</title>
+</head>
+<body>
+  <div class="write-title">
+      <input style="color:white;" class="back-color" type="text" id="title" value="<%=data.title%>">
+  </div>
+  <hr>
+  <div class="write-category">
+    <select class="back-color symbol-color" name=category onchange="selectBoxChange(this.value)">
+      <option value="" selected disabled hidden >카테고리</option>
+      <option value="meetingnote">회의록</option>
+      <option value="project">프로젝트</option>
+      <option value="web">Web</option>
+      <option value="mobile">Mobile</option>
+      <option value="dataanalysis">DataAnalysis</option>
+      <option value="ai">AI</option>
+    </select>
+  </div>
+<!-- 카테고리 수정시에 _id가 충돌 될 위험이 있음,, 이를 해결 할 방법 강구 -->
+
+  <div class="write-btn">
+      <button class="back-color" id="btnBigFont">대</button>
+      <button class="back-color" id="btnMiddleFont">중</button>
+      <button class="back-color" id="btnSmallFont">소</button>
+
+      <button class="back-color" id="btnBold"><b>B</b></button>
+      <button class="back-color" id="btnItalic"><span style="font-style: italic;">I</span></button>
+      <button class="back-color" id="btnStrike">T</button>
+
+      <button class="back-color" >"</button>
+      <button class="back-color symbol-color">링크</button>
+      <button  class="back-color" id="btnImage"><i style="font-size: 20px;" class="far fa-image"></i></button>
+      <input  class="image-selector" id="imgSelector" type="file" accept="image/*"/>
+
+    </div>
+
+  <div contenteditable="true" class="write-contents" data-text="텍스트를 입력하세요." id="editor" >
+    <%- data.content %>
+  </div>
+
+  <div class="last-button">
+    <button >임시저장</button>
+    <button class="complete-button">저장하기</button>
+  </div>
+
+
+</body>
+<script>
+  $('#btnBigFont').click(function(){
+    changeFont(7);
+  });
+  $('#btnMiddleFont').click(function(){
+    changeFont(5);
+  });
+  $('#btnSmallFont').click(function(){
+    changeFont(3);
+  });
+  $('#btnBold').click(function(){
+    setStyle('bold');
+  });
+  $('#btnItalic').click(function(){
+    setStyle('italic');
+  });
+  $('#btnStrike').click(function(){
+    setStyle('strikeThrough');
+  });
+  $('#btnImage').click(function(){
+    $('#imgSelector').click();
+  });
+  $('#imgSelector').change(function(e){
+    const files = e.target.files; 
+    if (!!files){ 
+      insertImageDate(files[0]); 
+    }
+  });
+
+  
+
+  function setStyle(style) { 
+    document.execCommand(style); 
+    focusEditor(); 
+  } // 버튼 클릭 시 에디터가 포커스를 잃기 때문에 다시 에디터에 포커스를 해줌 
+  function changeFont(size) {
+    document.execCommand("fontSize", false, size);
+    focusEditor();
+  }
+  function focusEditor() { 
+    editor.focus({preventScroll: true}); 
+  }
+
+  // function insertImageDate(file){ 
+  //   const reader = new FileReader(); 
+  //   reader.addEventListener('load', function (e) { 
+  //     focusEditor(); 
+  //     document.execCommand('insertImage', false, `${reader.result}`); 
+  //   }); 
+  //   reader.readAsDataURL(file); 
+  // }
+
+  var category = "";
+  var selectBoxChange = function(value){
+      console.log(value);
+      category = value;
+    }
+  $('.complete-button').click(function(){
+    var title = $('#title').val();
+    var content = $('#editor').html();
+
+    
+    
+    var alldata = {"title" : title, "category" : category, "content": content};
+    $.ajax({
+      type:"GET",
+      url: "/edit",
+      data: alldata,
+      dataType: "json",
+      success: function(){
+        console.log("success")
+      }
+    })
+  })
+
+  
+  
+
+</script>
+</html>

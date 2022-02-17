@@ -40,6 +40,9 @@ nav {
   height: 100px;
   padding-top: 40px; /*메뉴를 아래로 내리기 위해 */
 }
+.menu-button{
+  display: none;
+}
 
 .logo {
   margin-left: 10%;
@@ -64,7 +67,7 @@ nav {
   width: 50%;
   height: 60px;
   float: right;
-    margin-right: 10%;
+  margin-right: 10%;
 }
 
 .topMenu-ul {
@@ -923,3 +926,344 @@ a {
   margin-left: 10px;
 }
 
+
+.list-box {
+    margin-left: 20px;
+    width: 100%;
+}
+
+.list-box-title {
+    margin-left: 10px;
+    float: left;
+    width: 50%;
+}
+
+
+
+.list-box-file-download {
+    float: right;
+    width: 10%;
+}
+
+/* 
+  *************************************
+                모바일 
+  *************************************
+*/
+
+@media screen and (max-width: 768px) {
+  header {
+    width: 100%;
+    height: 10px;
+  }
+  nav {
+    width: 100%;
+    height: 10px;
+    padding-top: 40px; /*메뉴를 아래로 내리기 위해 */
+    position: relative;
+  }
+  
+  .menu-button{
+    position: absolute ;
+    margin: 0;
+    font-size: 30px;
+    left: 15px;
+    top: 30px;
+    
+  }
+  .logo {
+    position: absolute;
+    top: 0;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    line-height: 100px;
+  }
+  
+  .logo h1 {
+    height: 40px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    color: #83ff5c;
+    text-shadow: 0 -1px 0 #222;
+  }
+  
+  
+  /* 메뉴바 내려오는 영역*/
+  .topMenu {
+    position: relative;
+    width: 500px;
+    display: block;
+  }
+  
+  .topMenu-ul {
+    left: 30px;
+    position: absolute;
+    width: 180px;
+  }
+  
+  .topMenu-ul > li {
+    float: left;
+    position: relative; /* 서브메뉴의 부모요소 */
+  }
+  
+  .topMenu-ul > li > a {
+    display: block; /*링크 텍스트는 블록으로 */
+    color: #ccc;
+    font-weight: 600;
+    text-shadow: 0 1px #07c;
+    padding: 20px 40px;
+  }
+  
+  .topMenu-ul > li > a > span {
+    font-size: 0.5em; /* 서브메뉴가 있는 항목에 화살표 표시 */
+  }
+  
+  .topMenu-ul > li > a:hover {
+    color: #88d60b; /* 마우스 포인터를 올리면 색상 바뀜 */
+    text-shadow: 0 -1px #07c; /* 글자가 굵어지지 않도록 지정 */
+  }
+  
+  .topMenu-ul > li > ul {
+    display: none; /* 서브메뉴를 처음에는 감춤 */
+    position: absolute;
+    width: 160px;
+    margin: 0;
+    left: 100px;
+    top: 10px;
+  }
+  
+  .topMenu-ul > li > ul > li {
+    padding: 10px 0px 10px 0px; /*서브메뉴 항목 지정 */
+  }
+  
+  .topMenu-ul > li > ul > li > a {
+    font-size: 14px;
+    padding: 10px;
+    color: #ccc;
+  }
+  
+  .topMenu-ul > li:hover > ul {
+    display: block;
+  }
+  
+  .topMenu-ul > li > ul > li > a:hover {
+    color: #83ff5c;
+  }
+
+  /*
+    ************************************
+    content영역
+    ************************************
+  */
+
+
+.middle-apply {
+  margin-top: 150px;
+  height: 1500px;
+  width: 100%;
+}
+
+.middle-title {
+  width: 28%;
+  height: 60px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+.middle-title h1{
+  font-size: 60px;
+}
+
+.middle-introduce {
+  width: 65%;
+  height: 20%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.import-logo {
+  float: left;
+  height: 80%;
+  width: 40%;
+  margin: 10px;
+  margin-left: 100px;
+  margin-right: 40px;
+}
+.import-logo img{
+  width: 100%;
+}
+
+.middle-introduce-text{
+  float: left;
+  width: 40%;
+  margin-left: 0;
+}
+
+.middle-introduce-title {
+  float: left;
+  font-size: 18px;
+  width: 100%;
+
+}
+
+.middle-introduce-content {
+  float: left;
+  font-size: 20px;
+  width: 100%;
+}
+
+/*
+    동아리에서 하는 일들을 소개하는 란
+*/
+
+.middle-content {
+  width: 80%;
+  height: 20%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.middle-content-title {
+  font-size: 18px;
+  width: 23%;
+  margin: auto;
+  text-align: center;
+}
+.middle-content-title h1{
+  width: 250px;
+}
+
+.middle-content-image {
+  width: 40%;
+  float: left;
+}
+
+.middle-content-text {
+  width: 55%;
+  font-size: 18px;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.middle-content-text p{
+  font-size: 21px;
+  width: 600px;
+  margin: auto;
+}
+
+
+/* 자동 슬라이드 구현 부분 코드 */
+.slide-container {
+    width: 2000vw;
+    transform: translateX(0vw);/*-120까지 하면 됨*/
+    transition: transform 0.3s;
+}
+.slide-box {
+  width: 10vw;
+  float: left;
+  text-align: center;
+}
+.slide-box i {
+  font-size: 90px;
+}
+/* 종료 */
+
+/* 
+
+    지원 자격에 대한 부분을 설명하는 란
+
+*/
+
+.middle-eligibility {
+    width: 80%;
+    margin: auto;
+    font-size: 14px;
+}
+
+.middle-dligibility-title {
+    width: 40%;
+    margin: auto;
+    text-align: center;
+}
+.middle-dligibility-title h1{
+    width: 400px;
+}
+
+.middle-eligibility-image {
+    float: left;
+    width: 30%;
+    margin-left: 20px;
+    margin-top: 40px;
+}
+.middle-eligibility-image img{
+    width: 120%;
+}
+
+.middle-eligibility-content {
+    float: right;
+    width: 55%;
+    font-size: 20px;
+    margin-bottom: 100px;;
+}
+
+.middle-eligibility-content ul li{
+    margin-top: 40px;
+}
+
+/* 지원 버튼*/
+
+.apply {
+  border-radius: 10px;
+  font-size: 20px;
+  color: white;
+  background-color: #83ff59;
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+}
+
+.apply-btn {
+    width: 15%;
+    height: 50px;
+    margin: auto;
+    
+}
+
+
+
+/* 푸터 영역 */
+
+.footer {
+  height: 300px;
+  width: 100%;
+}
+.snss {
+  width: 30%;
+  height: 40px;
+}
+.sns ul li {
+  padding: 5px;
+  width: 30px;
+  float: left;
+  border-radius: 10px;
+}
+.snss a {
+  text-decoration: none;
+    color: white; 
+    font-size: 30px; 
+}
+.copyright {
+  width: 290px;
+  margin: auto;
+}
+
+.address {
+  float: right;
+  color: #a3bcdf;
+  margin-top: 120px;
+}
+
+}

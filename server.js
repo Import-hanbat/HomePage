@@ -10,7 +10,7 @@ MongoClient.connect('mongodb+srv://import:import1015@cluster0.a1cx0.mongodb.net/
 	if (err) return console.log(err)
 	db = client.db('HomePage');
 
-	app.listen(8080, function () {
+	app.listen(8080, function (){
 		console.log('listening on 8080')
 	});
 });
@@ -147,8 +147,27 @@ app.post('/add',function(req,res){
     
 })
 
+app.delete('/delete',function(){
+    req.body._id = parseInt(req.body._id);
+    db.collection(req.query.category).deleteOne(req.body, function(ree, resu){
+        console.log('삭제완료');
+        res.status(200).send({message: '성공했습니다.'});
+    })
+})
 
+app.get('/edit/:id',function(req, res){
+    db.collection(req.body.category).findOne({_id: parseInt(req.params.id)},function(err, resu){
+        console.log(resu);
+        res.render('edit.ejs', {data : resu});
+    })
+})
 
+app.put('/edit',function(req,res){
+    db.collection(req.body.category).updateOne({_id : parseInt(req.body.id)},{ $set : {title: req.body.title, content: req.body.content}},function(err, resu){
+        console.log('수정완료');
+        res.redirect('/list');
+    })
+})
 
 /*
  *
