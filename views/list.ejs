@@ -10,7 +10,7 @@
   
     <title>IMPORT</title>
     <script src="https://kit.fontawesome.com/4ab7d5f053.js" crossorigin="anonymous"></script>
-    <script src="main.js" defer></script>
+    <script src="../js/main.js" defer></script>
 </head>
 <body>
     <!-- 상단 메뉴 바, 어느 페이지건 다 복사 붙여넣기를 해야함 -->
@@ -20,27 +20,27 @@
                 <i class="fas fa-bars"></i>
             </div>
           <div class="logo">
-              <h1 style="cursor: pointer;" onclick="location.href='http://localhost:8080/'">IMPORT</h1>
+              <h1 style="cursor: pointer;" onclick="location.href='<%= process.env.SERVER_HOST %>'">IMPORT</h1>
           </div>
         <div class="topMenu">
             <ul class="topMenu-ul">
-              <li><a href="https://import-hanbat/">동아리 <span>▼</span></a>
+              <li><a href="<%= process.env.SERVER_HOST %>/">동아리 <span>▼</span></a>
                 <ul>
-                  <li><a href="https://import-hanbat/executive">임원진</a></li>
-                  <li><a href="https://import-hanbat/indroduce">동아리 소개</a></li>
-                  <li><a href="https://import-hanbat/rule">동아리 규칙</a></li>
-                  <li><a href="https://import-hanbat/meeting">회의록</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/executive">임원진</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/indroduce">동아리 소개</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/rule">동아리 규칙</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/meeting">회의록</a></li>
                 </ul>
               </li>
-              <li><a href="https://import-hanbat/project">프로젝트</a></li>
-              <li><a href="https://import-hanbat/">Education <span>▼</span></a>
+              <li><a href="<%= process.env.SERVER_HOST %>/project">프로젝트</a></li>
+              <li><a href="<%= process.env.SERVER_HOST %>/">Education <span>▼</span></a>
                 <ul>
-                  <li><a href="https://import-hanbat/web">Web</a></li>
-                  <li><a href="https://import-hanbat/mobile">Mobile</a></li>
-                  <li><a href="https://import-hanbat/dataAnalysis">Data Analysis</a></li>
-                  <li><a href="https://import-hanbat/ai">AI</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/web">Web</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/mobile">Mobile</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/dataAnalysis">Data Analysis</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/ai">AI</a></li>
                 </ul>
-              <li><a href="https://import-hanbat/question">질문 게시판</a></li>
+              <li><a href="<%= process.env.SERVER_HOST %>/question">질문 게시판</a></li>
             </ul>
         </div>
       </nav>
@@ -61,8 +61,8 @@
                 <div class="project-cards">
                     <!-- 프로젝트 게시물 개별 -> 한번에 6개 보여줌-->
                         <div class="project-card-component"  onclick="senddata()">
-                            <a class="project-views" href="http://localhost:8080/post/<%=data[i]._id%>?category=<%=data[i].category%>">
-                                <img src="../images/project.png" alt="" class="project-thumbnail">
+                            <a class="project-views" href="<%= process.env.SERVER_HOST %>/post/<%=data[i]._id%>?category=<%=data[i].category%>">
+                                <img src="./images/project.png" alt="" class="project-thumbnail">
                                 <p class="name"><%= data[i].title %></p>
                                 <p class="time">2022</p>
                             </a>
