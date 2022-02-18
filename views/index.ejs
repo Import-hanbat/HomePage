@@ -6,10 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>   
-    <link href="../fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+    <link href="./fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
 
   <title>IMPORT</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <script>
@@ -36,27 +36,27 @@
                 <i class="fas fa-bars"></i>
             </div>
           <div class="logo">
-              <h1 style="cursor: pointer;" onclick="location.href='http://localhost:8080/'">IMPORT</h1>
+              <h1 style="cursor: pointer;" onclick="location.href='<%= process.env.SERVER_HOST %>/'">IMPORT</h1>
           </div>
         <div class="topMenu">
             <ul class="topMenu-ul">
-              <li><a href="https://import-hanbat/">동아리 <span>▼</span></a>
+              <li><a href="<%= process.env.SERVER_HOST %>/">동아리 <span>▼</span></a>
                 <ul>
-                  <li><a href="https://import-hanbat/executive">임원진</a></li>
-                  <li><a href="https://import-hanbat/indroduce">동아리 소개</a></li>
-                  <li><a href="https://import-hanbat/rule">동아리 규칙</a></li>
-                  <li><a href="https://import-hanbat/meeting">회의록</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/executive">임원진</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/indroduce">동아리 소개</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/rule">동아리 규칙</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/meeting">회의록</a></li>
                 </ul>
               </li>
-              <li><a href="https://import-hanbat/project">프로젝트</a></li>
-              <li><a href="https://import-hanbat/">Education <span>▼</span></a>
+              <li><a href="<%= process.env.SERVER_HOST %>/project">프로젝트</a></li>
+              <li><a href="<%= process.env.SERVER_HOST %>/">Education <span>▼</span></a>
                 <ul>
-                  <li><a href="https://import-hanbat/web">Web</a></li>
-                  <li><a href="https://import-hanbat/mobile">Mobile</a></li>
-                  <li><a href="https://import-hanbat/dataAnalysis">Data Analysis</a></li>
-                  <li><a href="https://import-hanbat/ai">AI</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/web">Web</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/mobile">Mobile</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/dataAnalysis">Data Analysis</a></li>
+                  <li><a href="<%= process.env.SERVER_HOST %>/ai">AI</a></li>
                 </ul>
-              <li><a href="https://import-hanbat/question">질문 게시판</a></li>
+              <li><a href="<%= process.env.SERVER_HOST %>/question">질문 게시판</a></li>
             </ul>
         </div>
       </nav>
@@ -75,7 +75,7 @@
         <div class="middle-introduce">
               
             <div class="import-logo">
-                <img src="../images/import_logo.png">
+                <img src="./images/import_logo.png">
             </div>
             <div class="middle-introduce-text">
                 <div class="middle-introduce-title">
@@ -188,7 +188,7 @@
                   <h1>지원자격은 어떻게 되나요?</h1>
               </div>
               <div class="middle-eligibility-image">
-                  <img src="../images/hoho.png">
+                  <img src="./images/hoho.png">
               </div>
               <div class="middle-eligibility-content">
                   <ul>

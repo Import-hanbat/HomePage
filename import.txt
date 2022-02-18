@@ -1,9 +1,0 @@
-배경색: #060707
-포인트색: #83ff5c
-글자색: #a3bcdf
-
-1. list와 db간 연결을 통해서 list페이지 구현
-2. list에서 poster를 클릭하면 그 데이터가 넘어가서 post.ejs페이지에 띄워주기
-3. question.ejs 구현(list를 목록보기 형으로 변경), post페이지를 활용 및 댓글 기능 구현
-4. rule, introduce, executive에 대한 내용 
- 
