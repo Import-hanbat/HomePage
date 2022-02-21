@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,25 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link href="../fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
-  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>   
     <title>IMPORT</title>
     <script src="https://kit.fontawesome.com/4ab7d5f053.js" crossorigin="anonymous"></script>
-    <script src="../js/main.js" defer></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
     <!-- 상단 메뉴 바, 어느 페이지건 다 복사 붙여넣기를 해야함 -->
     <header>
         <nav>
             <div class="menu-button">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars open-menu" onclick="openMenu()"></i>
+                <i class="fas fa-times close-menu" onclick="closeMenu()"></i>
             </div>
           <div class="logo">
-              <h1 style="cursor: pointer;" onclick="location.href='<%= process.env.SERVER_HOST %>'">IMPORT</h1>
+              <h1 style="cursor: pointer;" onclick="location.href='<%= process.env.SERVER_HOST %>/'">IMPORT</h1>
           </div>
         <div class="topMenu">
             <ul class="topMenu-ul">
-              <li><a href="<%= process.env.SERVER_HOST %>/">동아리 <span>▼</span></a>
-                <ul>
+              <li><a onclick="OpenSmallMenu(1)">동아리 <span>▼</span></a>
+                <ul id="SmallMenu1">
                   <li><a href="<%= process.env.SERVER_HOST %>/executive">임원진</a></li>
                   <li><a href="<%= process.env.SERVER_HOST %>/indroduce">동아리 소개</a></li>
                   <li><a href="<%= process.env.SERVER_HOST %>/rule">동아리 규칙</a></li>
@@ -33,8 +33,8 @@
                 </ul>
               </li>
               <li><a href="<%= process.env.SERVER_HOST %>/project">프로젝트</a></li>
-              <li><a href="<%= process.env.SERVER_HOST %>/">Education <span>▼</span></a>
-                <ul>
+              <li><a onclick="OpenSmallMenu(2)">Education <span>▼</span></a>
+                <ul id="SmallMenu2">
                   <li><a href="<%= process.env.SERVER_HOST %>/web">Web</a></li>
                   <li><a href="<%= process.env.SERVER_HOST %>/mobile">Mobile</a></li>
                   <li><a href="<%= process.env.SERVER_HOST %>/dataAnalysis">Data Analysis</a></li>
@@ -45,6 +45,32 @@
         </div>
       </nav>
     </header>
+    <script>
+        
+        function openMenu(){
+            $('.topMenu').css('display','block');
+            $('.close-menu').css('display','block');
+            $('.open-menu').css('display','none');
+            $('.topMenu-ul').css('background','black');
+            $('.middle-apply').css('opacity','0.5');
+            $('.footer').css('opacity','0.5');
+        }
+        function closeMenu(){
+            $('.topMenu').css('display','none');
+            $('.topMenu-ul').css('background','none');
+            $('.close-menu').css('display','none');
+            $('.open-menu').css('display','block');
+            $('.middle-apply').css('opacity','1');
+            $('.footer').css('opacity','1');
+            
+        }
+        function OpenSmallMenu(num){
+            var result = '#SmallMenu'+num;
+            $(result).css('dislay','block');
+
+        }
+
+    </script>        
 
     <!--상단 게시판 제목-->
     <div class="contents">
@@ -60,9 +86,9 @@
                 <!--프로젝트 게시물 전체-->
                 <div class="project-cards">
                     <!-- 프로젝트 게시물 개별 -> 한번에 6개 보여줌-->
-                        <div class="project-card-component"  onclick="senddata()">
+                        <div class="project-card-component">
                             <a class="project-views" href="<%= process.env.SERVER_HOST %>/post/<%=data[i]._id%>?category=<%=data[i].category%>">
-                                <img src="./images/project.png" alt="" class="project-thumbnail">
+                                <img src="../images/project.png" alt="" class="project-thumbnail">
                                 <p class="name"><%= data[i].title %></p>
                                 <p class="time">2022</p>
                             </a>
