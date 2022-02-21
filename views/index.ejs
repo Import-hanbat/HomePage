@@ -6,62 +6,72 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>   
-    <link href="./fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
-
+    <link href="../fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
   <title>IMPORT</title>
-  <link rel="stylesheet" href="./css/style.css">
+ 
 </head>
 <body>
-    <script>
-        //스크롤의 값에 따라서 애니메이션을 사용할 건지에 대한 코드
-        window.addEventListener('scroll',function(){
-           var nowScroll = document.body.scrollTop;
-            console.log(nowScroll);
-            
-            if(nowScroll > 150){
-                
-            }
-            
-        });
-        window.onload = function(){
-            var firstmiddle = document.a
-        }
-        
-        
-    </script>
     <!-- 상단 메뉴 바, 어느 페이지건 다 복사 붙여넣기를 해야함 -->
     <header>
         <nav>
             <div class="menu-button">
-                <i class="fas fa-bars"></i>
+                <i class="fas fa-bars open-menu" onclick="openMenu()"></i>
+                <i class="fas fa-times close-menu" onclick="closeMenu()"></i>
             </div>
           <div class="logo">
               <h1 style="cursor: pointer;" onclick="location.href='<%= process.env.SERVER_HOST %>/'">IMPORT</h1>
           </div>
         <div class="topMenu">
             <ul class="topMenu-ul">
-              <li><a href="<%= process.env.SERVER_HOST %>/">동아리 <span>▼</span></a>
-                <ul>
-                  <li><a href="<%= process.env.SERVER_HOST %>/executive">임원진</a></li>
-                  <li><a href="<%= process.env.SERVER_HOST %>/indroduce">동아리 소개</a></li>
-                  <li><a href="<%= process.env.SERVER_HOST %>/rule">동아리 규칙</a></li>
-                  <li><a href="<%= process.env.SERVER_HOST %>/meeting">회의록</a></li>
+              <li><a onclick="OpenSmallMenu(1)">동아리 <span>▼</span></a>
+                <ul id="SmallMenu1">
+                  <li><a href="http://localhost:8080/executive">임원진</a></li>
+                  <li><a href="http://localhost:8080/indroduce">동아리 소개</a></li>
+                  <li><a href="http://localhost:8080/rule">동아리 규칙</a></li>
+                  <li><a href="http://localhost:8080/meeting">회의록</a></li>
                 </ul>
               </li>
-              <li><a href="<%= process.env.SERVER_HOST %>/project">프로젝트</a></li>
-              <li><a href="<%= process.env.SERVER_HOST %>/">Education <span>▼</span></a>
-                <ul>
-                  <li><a href="<%= process.env.SERVER_HOST %>/web">Web</a></li>
-                  <li><a href="<%= process.env.SERVER_HOST %>/mobile">Mobile</a></li>
-                  <li><a href="<%= process.env.SERVER_HOST %>/dataAnalysis">Data Analysis</a></li>
-                  <li><a href="<%= process.env.SERVER_HOST %>/ai">AI</a></li>
+              <li><a href="http://localhost:8080/project">프로젝트</a></li>
+              <li><a onclick="OpenSmallMenu(2)">Education <span>▼</span></a>
+                <ul id="SmallMenu2">
+                  <li><a href="http://localhost:8080/web">Web</a></li>
+                  <li><a href="http://localhost:8080/mobile">Mobile</a></li>
+                  <li><a href="http://localhost:8080/dataAnalysis">Data Analysis</a></li>
+                  <li><a href="http://localhost:8080/ai">AI</a></li>
                 </ul>
-              <li><a href="<%= process.env.SERVER_HOST %>/question">질문 게시판</a></li>
+              <li><a href="http://localhost:8080/question">질문 게시판</a></li>
+
             </ul>
         </div>
       </nav>
     </header>
+    <script>
         
+        function openMenu(){
+            $('.topMenu').css('display','block');
+            $('.close-menu').css('display','block');
+            $('.open-menu').css('display','none');
+            $('.topMenu-ul').css('background','black');
+            $('.middle-apply').css('opacity','0.5');
+            $('.footer').css('opacity','0.5');
+        }
+        function closeMenu(){
+            $('.topMenu').css('display','none');
+            $('.topMenu-ul').css('background','none');
+            $('.close-menu').css('display','none');
+            $('.open-menu').css('display','block');
+            $('.middle-apply').css('opacity','1');
+            $('.footer').css('opacity','1');
+            
+        }
+        function OpenSmallMenu(num){
+            var result = '#SmallMenu'+num;
+            $(result).css('dislay','block');
+
+        }
+
+    </script>        
 
 
       <!-- 중간 부분에 로고와 함께 동아리를 소개하는 부분 -->
@@ -83,10 +93,10 @@
                 </div>
                 <div class="middle-introduce-content">
                     <p>
-                        <b>개발자</b>와 <b>디자이너</b>
+                        <b class="symbol-color">개발자</b>와 <b class="symbol-color">디자이너</b>
                         <br> 모두가 함께 성장할 수 있는,<br>
                         한밭대학교 총동아리 소속 
-                        <br><b>IT동아리</b>입니다.
+                        <br><b class="symbol-color">IT동아리</b>입니다.
                     </p>
                 </div>
             </div>
@@ -201,7 +211,7 @@
               </div>
               <div style="clear: both; display: block;"></div>
             <div class="apply-btn">
-              <button class="apply" onclick="location.href='http://localhost:8080/apply'">신청하기</button>
+              <button class="apply" onclick="location.href='https://import-hanbat.com/apply'">신청하기</button>
             </div> 
           </div>
     </div>

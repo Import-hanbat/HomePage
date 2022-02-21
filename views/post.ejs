@@ -1,147 +1,202 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>   
-        <link rel="stylesheet" href="../css/style.css">
-        <link href="../fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/monokai-sublime.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
-    
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="../fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>   
     <title>IMPORT</title>
-    <script src="../js/post.js"></script>
-    
+    <script src="https://kit.fontawesome.com/4ab7d5f053.js" crossorigin="anonymous"></script>
+    <script src="main.js" defer></script>
 </head>
 <body>
-  <header>
-    <nav>
-        <div class="menu-button">
-            <i class="fas fa-bars"></i>
-        </div>
-      <div class="logo">
-          <h1 style="cursor: pointer;" onclick="location.href='<%= process.env.SERVER_HOST %>'">IMPORT</h1>
-      </div>
-    <div class="topMenu">
-        <ul class="topMenu-ul">
-          <li><a href="<%= process.env.SERVER_HOST %>/">동아리 <span>▼</span></a>
-            <ul>
-              <li><a href="<%= process.env.SERVER_HOST %>/executive">임원진</a></li>
-              <li><a href="<%= process.env.SERVER_HOST %>/indroduce">동아리 소개</a></li>
-              <li><a href="<%= process.env.SERVER_HOST %>/rule">동아리 규칙</a></li>
-              <li><a href="<%= process.env.SERVER_HOST %>/meeting">회의록</a></li>
-            </ul>
-          </li>
-          <li><a href="<%= process.env.SERVER_HOST %>/project">프로젝트</a></li>
-          <li><a href="<%= process.env.SERVER_HOST %>/">Education <span>▼</span></a>
-            <ul>
-              <li><a href="<%= process.env.SERVER_HOST %>/web">Web</a></li>
-              <li><a href="<%= process.env.SERVER_HOST %>/mobile">Mobile</a></li>
-              <li><a href="<%= process.env.SERVER_HOST %>/dataAnalysis">Data Analysis</a></li>
-              <li><a href="<%= process.env.SERVER_HOST %>/ai">AI</a></li>
-            </ul>
-          <li><a href="<%= process.env.SERVER_HOST %>/question">질문 게시판</a></li>
-        </ul>
-    </div>
-  </nav>
-</header>
-        
-        <div class="post">
-            <div class="post-category">
-                <h2><%= data.category %></h2>
+    <!-- 상단 메뉴 바, 어느 페이지건 다 복사 붙여넣기를 해야함 -->
+    <header>
+        <nav>
+            <div class="menu-button">
+                <i class="fas fa-bars open-menu" onclick="openMenu()"></i>
+                <i class="fas fa-times close-menu" onclick="closeMenu()"></i>
             </div>
-            <div class="post-content-title">
-                <h1><%= data.title %></h1>
-            </div>
-            <div class="post-content-info">
-                <span>관리자</span> 
-                <span>2022.01.01</span>
-            </div>
-            
-            <!-- 수정, 삭제 버튼 위치 고려해야함 -->
-            
-            <div id="contentButtons">
-                <button id="contentEditButton" type="button">
-                    <i class="far fa-edit"></i>
-                </button>
-                <button id="contentDeleteButton" type="button">
-                    <i class="far fa-trash-alt" onclick="location.href=''"></i>
-                </button>
-            </div>
-            
-            
-            <hr>
-            <div id="contentBody">
-              <%- data.content %>
-
-                <!-- <pre>
-                <code>#include &ltstdio.h&gt
-
-    int main(void) {
-        printf("Hello world");
-        return 0;
-    }
-                </code></pre>
-                <p>
-                    content-body content-body content-body content-body content-body content-body content-body content-body 
-                    content-body content-body content-body content-body content-body content-body content-body content-body 
-                    content-body content-body content-body content-body content-body content-body content-body content-body 
-                    content-body content-body content-body content-body content-body content-body content-body content-body 
-                    content-body content-body content-body content-body content-body content-body content-body content-body 
-                    content-body content-body content-body content-body content-body content-body content-body content-body 
-                    content-body content-body content-body content-body content-body content-body content-body content-body 
-                </p> -->
-            </div>
-
-<!--
-            <div id="comments">
-                <h2 id="commentsCount"></h2>
-                <div id="commentWrap"></div>
-            </div>
--->
-            <hr>
-
-            <div class="post-footer-btn">
-                <div class="post-comment-btn">
-                    <button type="button">
-                        <i class="far fa-comment-dots"></i> add comment
-                    </button>
-                </div>
-                <div class="post-list-btn">
-                    <button type="button"><i class="fas fa-list"></i> list</button>
-                </div>
-                
-            </div>
-
-
-            <div class="other-contents">
-                <button class="prev-content-button" type="button">
-                    <span>&lang; prev</span><h3>Prev Content Title</h3>
-                </button>
-                <button class="next-content-button" type="button">
-                    <h3>Next Content Title</h3><span>next &rang;</span>
-                </button>
-            </div>
-        </div>
-
-        <div class="footer">
-      <div class="sns">
-        <ul class="snss">
-          <li><a href="https://github.com/Import-hanbat"><i style="color: white;" class="fab fa-github"></i></a></li>
-          <li><a href="https://www.instagram.com/import_hanbat/"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="https://www.facebook.com/Import-110047964872044"><i class="fab fa-facebook"></i></a></li>
-        </ul>
-      </div>
-        <div class="copyright">
-            <p>Copyright 2022. Import all right reserved.</p>
-        </div>
-          <div class="address">
-            <p>대전광역시 유성구 동서대로 125</p>
+          <div class="logo">
+              <h1 style="cursor: pointer;" onclick="location.href='http://localhost:8080/'">IMPORT</h1>
           </div>
-      </div>
-    
-    
+        <div class="topMenu">
+            <ul class="topMenu-ul">
+              <li><a onclick="OpenSmallMenu(1)">동아리 <span>▼</span></a>
+                <ul id="SmallMenu1">
+                  <li><a href="http://localhost:8080/executive">임원진</a></li>
+                  <li><a href="http://localhost:8080/indroduce">동아리 소개</a></li>
+                  <li><a href="http://localhost:8080/rule">동아리 규칙</a></li>
+                  <li><a href="http://localhost:8080/meeting">회의록</a></li>
+                </ul>
+              </li>
+              <li><a href="http://localhost:8080/project">프로젝트</a></li>
+              <li><a onclick="OpenSmallMenu(2)">Education <span>▼</span></a>
+                <ul id="SmallMenu2">
+                  <li><a href="http://localhost:8080/web">Web</a></li>
+                  <li><a href="http://localhost:8080/mobile">Mobile</a></li>
+                  <li><a href="http://localhost:8080/dataAnalysis">Data Analysis</a></li>
+                  <li><a href="http://localhost:8080/ai">AI</a></li>
+                </ul>
+              <li><a href="http://localhost:8080/question">질문 게시판</a></li>
+            </ul>
+        </div>
+      </nav>
+    </header>
+    <script>
+        
+        function openMenu(){
+            $('.topMenu').css('display','block');
+            $('.close-menu').css('display','block');
+            $('.open-menu').css('display','none');
+            $('.topMenu-ul').css('background','black');
+            $('.middle-apply').css('opacity','0.5');
+            $('.footer').css('opacity','0.5');
+        }
+        function closeMenu(){
+            $('.topMenu').css('display','none');
+            $('.topMenu-ul').css('background','none');
+            $('.close-menu').css('display','none');
+            $('.open-menu').css('display','block');
+            $('.middle-apply').css('opacity','1');
+            $('.footer').css('opacity','1');
+            
+        }
+        function OpenSmallMenu(num){
+            var result = '#SmallMenu'+num;
+            $(result).css('dislay','block');
+
+        }
+
+    </script>        
+
+    <!--상단 게시판 제목-->
+    <div class="contents">
+        <div class="title">
+            <% if(data.length > 0){ %>
+            <h2><%= data[0].category %></h2>
+            <sup class="total">12</sup>
+        </div>
+        <!--상단 제목 ~ 하단 Load more-->
+        <div class="project-cards-container">
+            
+                <% for (var i = 0; i< data.length;i++){ %>
+                <!--프로젝트 게시물 전체-->
+                <div class="project-cards">
+                    <!-- 프로젝트 게시물 개별 -> 한번에 6개 보여줌-->
+                        <div class="project-card-component">
+                            <a class="project-views" href="http://localhost:8080/post/<%=data[i]._id%>?category=<%=data[i].category%>">
+                                <img src="../images/project.png" alt="" class="project-thumbnail">
+                                <p class="name"><%= data[i].title %></p>
+                                <p class="time">2022</p>
+                            </a>
+                            <div class="links">
+                                <div class="link-item">
+                                    <p>Go to Page</p>
+                                </div>
+                            </div>
+                        </div>        
+                </div>
+                <% } %>
+            
+            <div class="load-more">
+                <div class="load-more-btn">
+                    <p>Load more</p>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <% }else{ %>
+                    <script>
+                        alert('빈 게시글 입니다.');
+                    </script>
+                <% } %>
+            </div>
+        </div>
+    </div>
+                <!--
+
+                
+                <div class="project-card-component">
+                    <a href="" class="project-views">
+                        <img src="../images/project.png" alt="" class="project-thumbnail">
+                        <p class="name">프로젝트 제목</p>
+                        <p class="time">1기</p>
+                    </a>
+                    <div class="links">
+                        <div class="link-item">
+                            <p>Go to Page</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card-component">
+                    <a href="" class="project-views">
+                        <img src="../images/project.png" alt="" class="project-thumbnail">
+                        <p class="name">프로젝트 제목</p>
+                        <p class="time">1기</p>
+                    </a>
+                    <div class="links">
+                        <div class="link-item">
+                            <p>Go to Page</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card-component">
+                    <a href="" class="project-views">
+                        <img src="../images/project.png" alt="" class="project-thumbnail">
+                        <p class="name">프로젝트 제목</p>
+                        <p class="time">1기</p>
+                    </a>
+                    <div class="links">
+                        <div class="link-item">
+                            <p>Go to Page</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card-component">
+                    <a href="" class="project-views">
+                        <img src="../images/project.png" alt="" class="project-thumbnail">
+                        <p class="name">프로젝트 제목</p>
+                        <p class="time">1기</p>
+                    </a>
+                    <div class="links">
+                        <div class="link-item">
+                            <p>Go to Page</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card-component">
+                    <a href="" class="project-views">
+                        <img src="../images/project.png" alt="" class="project-thumbnail">
+                        <p class="name">프로젝트 제목</p>
+                        <p class="time">1기</p>
+                    </a>
+                    <div class="links">
+                        <div class="link-item">
+                            <p>Go to Page</p>
+                        </div>
+                    </div>
+                </div>
+                -->
+                
+ 
+
+
+    <!-- 마지막 footer부분 이 부분은 메뉴바와 함께 복사 붙여 넣기 꼭 하기 -->
+    <div class="footer">
+        <div class="sns">
+          <ul class="snss">
+            <li><a href="https://github.com/Import-hanbat"><i style="color: white;" class="fab fa-github"></i></a></li>
+            <li><a href="https://www.instagram.com/import_hanbat/"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/Import-110047964872044"><i class="fab fa-facebook"></i></a></li>
+          </ul>
+        </div>
+          <div class="copyright">
+              <p>Copyright 2022. Import all right reserved.</p>
+          </div>
+            <div class="address">
+              <p>대전광역시 유성구 동서대로 125</p>
+            </div>
+        </div>
 </body>
 </html>  
