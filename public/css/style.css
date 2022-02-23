@@ -847,6 +847,25 @@ a {
   color: var(--white-color);
   padding-left: 16px;
 }
+.contents .write-btn {
+  margin-bottom: 30px;
+ }
+ 
+ .contents .write-btn .write-button {
+   margin: auto;
+   float: right;
+   font-size: 20px;
+   color: white;
+   background-color: transparent;
+   width: 80px;
+   height: 30px;
+   font-weight: 100;
+   border: none;
+ }
+ 
+ .contents .write-btn .write-button:hover {
+   color: var(--green-color);
+ }
 
 .contents .project-cards-container {
   display: flex;
@@ -1284,6 +1303,215 @@ a {
   width: 20px;
   height: 11;
 }
+
+/* 동아리규칙 css */
+
+.rule-content {
+  width: 100%;
+  height: 1800px;
+  margin-top: 90px;
+}
+
+.rule-content-title {
+margin-left: 200px;  
+}
+
+.rule-content-titleStyle {
+  font-weight: 800;
+}
+
+.rule {
+  word-spacing: 2px;
+  line-height: 40px;
+}
+
+/* 임원진 소개 css  */
+
+:root {
+  /* Color */
+  --white-color: #f1f1ef;
+  --black-color: #060707;
+  --green-color: #83ff5c;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0e0e0;
+}
+
+* {
+  font-family: Roboto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.executive-contents {
+  width: 100%;
+  margin: 0 auto 0;
+}
+
+.executive-contents .title {
+  display: flex;
+  align-items: center;
+}
+
+.executive-contents .title h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.82em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  color: #83ff5c;
+}
+
+.executive-contents .executive-cards-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 120px;
+
+}
+
+.executive-contents .executive-cards-container .executive-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  
+}
+
+.executive-contents .executive-cards-container .executive-cards .executive-card-component {
+  margin-top: 48px;
+  flex-basis: 365px;
+  border-radius: 16px;
+  border: 1px solid rgba(204, 204, 204, 0.15);
+  
+}
+
+.executive-contents
+ .executive-cards-container
+ .executive-cards
+ .executive-card-component
+  a:hover {
+  opacity: 0.5;
+}
+
+.executive-contents
+ .executive-cards-container
+ .executive-cards
+ .executive-card-component
+ .executive-thumbnail {
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  object-fit: cover;
+  
+}
+.executive-contents
+ .executive-cards-container
+ .executive-cards
+ .executive-card-component
+ .executive-box{
+   width: 100%;
+   height: 50px;
+   float: left;
+   text-align: center;
+ }
+ .executive-contents
+ .executive-cards-container
+ .executive-cards
+ .executive-card-component
+ .executive-box p{
+   
+ }
+
+.executive-contents
+ .executive-cards-container
+ .executive-cards
+ .executive-card-component
+ .executive-name {
+  font-style: normal;
+  margin: 24px 0 0 24px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: -0.02em;
+  color: var(--white-color);
+  cursor: pointer;
+  float: left;
+}
+
+.executive-contents
+ .executive-cards-container
+ .executive-cards
+ .executive-card-component
+ .position {
+  font-style: normal;
+  margin: 8px 0 0 24px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: var(--white-color);
+  margin-top: 60px;
+  
+}
+
+.executive-contents
+ .executive-cards-container
+ .executive-cards
+ .executive-card-component
+ .introduce {
+  font-style: normal;
+  margin: 8px 0 0 24px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: var(--white-color);
+}
+
+.executive-contents
+ .executive-cards-container
+ .executive-cards
+ .executive-card-component
+ .skill {
+  font-style: normal;
+  margin-top: 10px;
+  margin-left: 0px;
+  font-size: 12px;
+  color: var(--white-color);
+  list-style: none;
+  padding: 20px;
+}
+
+.executive-contents
+ .executive-cards-container
+ .executive-cards
+ .executive-card-component
+ .skill .skill-list {
+  float: left;
+  border: 1px solid #ccc;
+  margin-left: 5px;
+}
+
+.executive-contents
+ .executive-cards-container
+ .executive-cards
+ .executive-card-component
+ .git-link {
+  float: left;
+  
+  margin-left: 10px;
+  margin-top: 24px;
+
+ }
+
+
+/* 
+  *************************************
+                태블릿 
+  *************************************
+*/
+
 
 
 /* 
