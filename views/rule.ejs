@@ -1,1 +1,118 @@
 <!--동아리 규칙 페이지-->
+<!--동아리 규칙 페이지-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/style.css" rel="stylesheet">
+  <title>IMPORT</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <a herf="index.ejs">
+          <h1 style="cursor: pointer;" onclick="location.href='http://localhost:8080/'">IMPORT</h1>
+        </a>
+      </div>
+    <div class="topMenu">
+        <ul class="topMenu-ul">
+          <li><a href="http://localhost:8080/">동아리 <span>▼</span></a>
+            <ul>
+              <li><a href="http://localhost:8080/executive">임원진</a></li>
+              <li><a href="http://localhost:8080/indroduce">동아리 소개</a></li>
+              <li><a href="http://localhost:8080/rule">동아리 규칙</a></li>
+              <li><a href="http://localhost:8080/meeting">회의록</a></li>
+            </ul>
+          </li>
+          <li><a href="http://localhost:8080/project">프로젝트</a></li>
+          <li><a href="http://localhost:8080/">Education <span>▼</span></a>
+            <ul>
+              <li><a href="http://localhost:8080/web">Web</a></li>
+              <li><a href="http://localhost:8080/mobile">Mobile</a></li>
+              <li><a href="http://localhost:8080/dataAnalysis">Data Analysis</a></li>
+              <li><a href="http://localhost:8080/ai">AI</a></li>
+            </ul>
+          <li><a href="http://localhost:8080/question">질문 게시판</a></li>
+        </ul>
+    </div>
+  </nav>
+</header>
+
+<div class="rule-content">
+  <div class="rule-content-title">
+   <h1 class="rule-content-titleStyle">동아리 규칙</h1>
+    <ul class="rule"><h2>회비</h2>
+      <li>1.	회비는 학기당 3만원으로 정한다. <br>
+        2.	한밭대 재학생, 졸업생, 휴학생을 상관하지 않고 회비를 낸 사람은 import의 회원이 될 수 있다.<br>
+        3.	회비를 내지 않은 회원은 import회원임을 인정받지 못한다. <br>
+        4.	회비를 낸 후에, 어떠한 사정으로 인해서 자발적으로 탈퇴를 희망하시는 회원들의 회비는 환불 불가능하다.<br>
+        (저희 회비는 서버비, DB비용 등등으로 매달 나가기 때문에 환불이 어렵습니다.)<br>
+        5.	회비는 카카오 모임 통장과 같이 투명하게 공개하며, 만약 이에 대한 상황이 어렵다면, 한달에 한번 총무가 회계장부를 정리하여 
+        단톡방에 게시한다.<br>
+        6.	위 사항을 어길 시에는 총무에게 이의 제기를 할 수 있으며,  3번에 걸쳐서 회계장부를 정리하지 않을 시에는 총무직을 박탈 당한다.<br>
+        7.	회장이 임명한 총무 2명이 박탈 당할 경우 회장 또한 자격을 박탈당한다.<br>
+        8.	공모전에서 참가하지 않은 임원진이 자문을 해줄 경우는 7:3의 비율로 동아리가 3의 비율을 가지고 간다.<br>
+        9.	공모전에서 동아리 코드 혹은 동아리 자원을 사용할 경우 4:6 이며, 동아리가 6의 비율을 가지고 간다.<br>
+        10.	위 사항은 임원진이 전원 동의로 동아리에서 가지고 가지 않는다는 의견이 나오지 않는 이상은 공모전 팀원 전체에게 징계를 한다.
+        </li>
+    </ul>
+      <ul class="rule"><h2>공모전</h2>
+      <li>1.	동아리 이름으로 나가려면 모든 인원이 회원이어야 한다. <br>
+        2.	만약 인공지능 공모전을 나갈 시에 동아리 코드를 대여 요청을 하실 때는 임원진에게 허락을 받아야하고, 이에 대한 대가로 입상 시 상금의 6을 동아리가 가지고 간다.<br>
+        3.	만약 공모전을 나갈 시에 서버를 빌려야 한다면 역시 임원진에 허락을 맡아야하며, 이에 대한 대가로 입상 시 상금의 6을 동아리가 가지고 간다.<br>
+        4.	공모전 팀이 동아리원에게 자문을 구한 경우 해당 동아리원에게 3의 입상비를 토대로 자문비를 제공한다.
+        </li>
+      </ul>
+   <ul class="rule"><h2>프로젝트</h2>
+    <li>
+      1.	프로젝트를 시작할 때는 무조건 임원진에게 계획서를 제출 해야한다. <br>
+      2.	통과된 계획서는 팀장에게 지원금을 지급한다.<br>
+      (그해에 재정상태에 따라서, 프로젝트 팀 수에 따라서 지원금은 달라질 수 있음)
+      3.	프로젝트 중간에 나간 인원은 1번 경고, 기간은 해당 프로젝트가 끝날 때까지 경고가 유지된다.<br>
+      4.	만약 경고가 1개 있는 상태에서 다른 프로젝트도 중간에 나간 인원은 경고 2개로 쌓이게 되고 바로 징계로 적용된다.<br>
+      5.	프로젝트 중간에 합류를 희망하시는 인원은 임원진이 추합하여, 프로젝트 팀장에게 드리고, 팀장 재량으로 프로젝트 인원을 추합한다.<br>
+      6.	프로젝트는 임원진 재량으로 불시에 중간 점검을 한다.<br>
+      7.	프로젝트를 기간 내에 끝내지 못하게 되면, 프로젝트 징계로 들어간다.<br>
+      8.	프로젝트가 기간 내에 끝낼 시에 임원진들과 일정 조율을 통해서 발표한다. 발표를 마친 팀은 임원진이 내용을 정리하여, 이를 홈페이지 프로젝트란에 게시한다.
+    </li>
+   </ul>
+   <ul class="rule"><h2>징계</h2>
+    <li>
+      1.	징계 사항은 경고, 동아리 강제 탈퇴, 동아리 블랙리스트 등이 있다.<br>
+      2.	동아리에서 징계를 받은 인원에 대해서 회비 환불은 없다.<br>
+      3.	동아리에 악영향을 미친 인원, 동아리 내에 분위기를 흐리는 인원, 동아리원들에게 여러차례 항의가 들어오는 인원에 대해서 경고를 준다.<br>
+      4.	경고는 1년 동안 유지한다. 프로젝트로 인해 경고를 받은 인원은 예외적으로 프로젝트가 종료 된 이후에는 경고가 사라진다.<br>
+      5.	경고 2회를 받은 인원은 강제 탈퇴 조치를 취한다.<br>
+      6.	프로젝트를 기간 내에 달성하지 못한 팀장 및 팀원은 전원 1년 동안 경고 처리한다.<br>
+      7.	공모전 회비를 제출 하지 않거나 비율에 맞게 제공하지 않은 팀장 및 팀원은 전원 경고 처리한다.
+    </li>
+    </ul>
+
+
+      
+    
+  </div>
+</div>
+
+<div class="footer">
+  <div class="sns">
+    <ul class="snss">
+      <li><a href="https://github.com/Import-hanbat"><i style="color: white;" class="fab fa-github"></i></a></li>
+      <li><a href="https://www.instagram.com/import_hanbat/"><i class="fab fa-instagram"></i></a></li>
+      <li><a href="https://www.facebook.com/Import-110047964872044"><i class="fab fa-facebook"></i></a></li>
+    </ul>
+  </div>
+    <div class="copyright">
+        <p>Copyright 2022. Import all right reserved.</p>
+    </div>
+      <div class="address">
+        <p>대전광역시 유성구 동서대로 125</p>
+      </div>
+  </div>
+
+
+</body>
+</html>
