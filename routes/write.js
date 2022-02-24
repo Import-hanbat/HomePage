@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
-const pwd = Buffer.from('', "utf8").toString('base64');
+const beforePwd = '';
+const pwd = Buffer.from(beforePwd, "utf8").toString('base64');
 
 /* GET /write */
 router.post('/', function(req, res) {
