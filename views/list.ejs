@@ -46,7 +46,16 @@
       </nav>
     </header>
     <script>
-        
+        function showModal() {
+            var modal = document.getElementById("Modal");
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("Modal");
+            modal.style.display = "none";
+        }
+
         function openMenu(){
             $('.topMenu').css('display','block');
             $('.close-menu').css('display','block');
@@ -55,6 +64,7 @@
             $('.middle-apply').css('opacity','0.5');
             $('.footer').css('opacity','0.5');
         }
+
         function closeMenu(){
             $('.topMenu').css('display','none');
             $('.topMenu-ul').css('background','none');
@@ -64,13 +74,51 @@
             $('.footer').css('opacity','1');
             
         }
+
         function OpenSmallMenu(num){
             var result = '#SmallMenu'+num;
             $(result).css('dislay','block');
 
         }
 
-    </script>        
+        document.forms['writeForm'].addEventListener('submit', (event) => {
+        event.preventDefault();
+        // TODO do something here to show user that form is being submitted
+        fetch(event.target.action, {
+            method: 'POST',
+            body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((resp) => {
+            return resp.json(); // or resp.text() or whatever the server sends
+        }).then((body) => {
+            // TODO handle body
+            console.log(body);
+        }).catch((error) => {
+            // TODO handle error
+        });
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("Modal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+});
+
+    </script>  
+    
+    <!-- Modal -->
+    <div id="Modal" class="modal">
+        <form class="modal-content animate" id="writeForm" action="/write" method="post">
+            <div class="xcontainer">
+                <span onclick="document.getElementById('Modal').style.display='none'" class="close" title="Close Modal">&times;</span>
+            </div>
+      
+            <div class="modalContainer">
+                <input type="password" class="pwd" placeholder="Enter Password" name="pwd" required>
+                <button type="submit" class="modalButton">Login</button>
+            </div>
+        </form>
+    </div>
 
     <!--상단 게시판 제목-->
     <div class="contents">
@@ -80,7 +128,7 @@
             <sup class="total">12</sup>
         </div>
         <div class="write-btn">
-            <button class="write-button"><i class="far fa-edit"></i></button>
+            <button class="write-button" onclick="showModal()"><i class="far fa-edit"></i></button>
         </div>
         <!--상단 제목 ~ 하단 Load more-->
         <div class="project-cards-container">
